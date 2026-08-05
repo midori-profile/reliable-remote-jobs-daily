@@ -1,0 +1,18 @@
+{
+  "jobs": [
+    {
+      "id": 111,
+      "title": "Senior Frontend Engineer (TypeScript)",
+      "absolute_url": "https://boards.greenhouse.io/gitlab/jobs/111",
+      "location": {"name": "Remote - APAC"},
+      "content": "<p>We use TypeScript and React.</p>"
+    },
+    {
+      "id": 222,
+      "title": "Site Reliability Engineer",
+      "absolute_url": "https://boards.greenhouse.io/gitlab/jobs/222",
+      "location": {"name": "Remote - US"},
+      "content": "<p>Kubernetes, Go.</p>"
+    }
+  ]
+}
