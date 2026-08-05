@@ -334,3 +334,19 @@ def test_fetch_for_company_dispatches_to_generic():
 
     mock_client.get.assert_called_once_with("https://example.com/careers", timeout=15)
     assert jobs[0].source == "generic"
+
+
+def test_fetch_for_company_raises_fetch_error_for_unknown_ats():
+    company = Company(
+        name="Mystery Co",
+        ats="bogus",
+        token=None,
+        careers_url="https://mystery.example.com/careers",
+    )
+
+    try:
+        fetch_for_company(company, client=Mock())
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Mystery Co" in str(e)
+        assert "bogus" in str(e)
