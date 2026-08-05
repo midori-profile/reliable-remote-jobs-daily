@@ -1,6 +1,8 @@
 import json
 from unittest.mock import Mock
 
+import requests
+
 from ts_remote_jobs.fetchers import FetchError, JobPosting, fetch_greenhouse
 
 
@@ -48,3 +50,16 @@ def test_fetch_greenhouse_raises_on_non_200():
         assert False, "expected FetchError"
     except FetchError as e:
         assert "404" in str(e)
+
+
+def test_fetch_greenhouse_wraps_network_error():
+    mock_client = Mock()
+    mock_client.get.side_effect = requests.exceptions.ConnectionError("boom: no route to host")
+
+    try:
+        fetch_greenhouse("gitlab", "GitLab", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "GitLab" in str(e)
+        assert "boom: no route to host" in str(e)
+        assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
