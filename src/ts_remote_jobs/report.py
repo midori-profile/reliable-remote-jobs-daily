@@ -1,6 +1,12 @@
+import re
 from datetime import date
 
 from ts_remote_jobs.fetchers import JobPosting
+
+
+def _escape_cell(value: str) -> str:
+    """Collapse embedded whitespace/newlines and escape pipes for a Markdown table cell."""
+    return re.sub(r"\s+", " ", value).strip().replace("|", "\\|")
 
 
 def render_report(jobs: list[JobPosting], unparsed_companies: list[str], run_date: date) -> str:
@@ -14,7 +20,10 @@ def render_report(jobs: list[JobPosting], unparsed_companies: list[str], run_dat
         lines.append("| Company | Title | Location | Link |")
         lines.append("|---|---|---|---|")
         for job in jobs:
-            lines.append(f"| {job.company} | {job.title} | {job.location} | [Apply]({job.url}) |")
+            company = _escape_cell(job.company)
+            title = _escape_cell(job.title)
+            location = _escape_cell(job.location)
+            lines.append(f"| {company} | {title} | {location} | [Apply]({job.url}) |")
 
     lines.append("")
     lines.append("## 未能解析")

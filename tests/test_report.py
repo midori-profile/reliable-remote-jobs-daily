@@ -23,3 +23,12 @@ def test_render_report_lists_jobs_and_unparsed():
 def test_render_report_handles_zero_jobs():
     md = render_report([], [], run_date=date(2026, 8, 5))
     assert "No matching roles found today." in md
+
+
+def test_render_report_escapes_pipe_and_newline_in_scraped_fields():
+    jobs = [
+        JobPosting("Acme", "Senior Engineer | Remote", "Remote\n- APAC",
+                   "https://x.example.com/1", "generic", ""),
+    ]
+    md = render_report(jobs, [], run_date=date(2026, 8, 5))
+    assert "| Acme | Senior Engineer \\| Remote | Remote - APAC | [Apply](https://x.example.com/1) |" in md
