@@ -33,3 +33,19 @@ def test_raises_if_markers_missing():
         assert False, "expected MarkersNotFoundError"
     except MarkersNotFoundError:
         pass
+
+
+def test_raises_if_markers_reversed():
+    from ts_remote_jobs.readme import MarkersNotFoundError
+
+    reversed_template = """# ts-remote-jobs
+
+<!-- LATEST-SCAN:END -->
+(no scan yet)
+<!-- LATEST-SCAN:START -->
+"""
+    try:
+        update_latest_scan_section(reversed_template, "x", "y", date(2026, 8, 5))
+        assert False, "expected MarkersNotFoundError"
+    except MarkersNotFoundError:
+        pass
