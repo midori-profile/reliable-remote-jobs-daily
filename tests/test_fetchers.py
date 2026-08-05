@@ -3,7 +3,14 @@ from unittest.mock import Mock
 
 import requests
 
-from ts_remote_jobs.fetchers import FetchError, JobPosting, fetch_greenhouse
+from ts_remote_jobs.fetchers import (
+    FetchError,
+    JobPosting,
+    fetch_ashby,
+    fetch_greenhouse,
+    fetch_lever,
+    fetch_workable,
+)
 
 
 def load_fixture(name):
@@ -61,5 +68,119 @@ def test_fetch_greenhouse_wraps_network_error():
         assert False, "expected FetchError"
     except FetchError as e:
         assert "GitLab" in str(e)
+        assert "boom: no route to host" in str(e)
+        assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_lever_parses_jobs():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = load_fixture("lever_response.json")
+
+    jobs = fetch_lever("doist", "Doist", client=mock_client)
+
+    mock_client.get.assert_called_once_with(
+        "https://api.lever.co/v0/postings/doist?mode=json", timeout=15
+    )
+    assert jobs[0].title == "Frontend Engineer, TypeScript"
+    assert jobs[0].location == "Remote - APAC"
+    assert jobs[0].url == "https://jobs.lever.co/doist/abc-123"
+    assert jobs[0].source == "lever"
+
+
+def test_fetch_lever_raises_on_non_200():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 500
+    try:
+        fetch_lever("doist", "Doist", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "500" in str(e)
+
+
+def test_fetch_lever_wraps_network_error():
+    mock_client = Mock()
+    mock_client.get.side_effect = requests.exceptions.ConnectionError("boom: no route to host")
+
+    try:
+        fetch_lever("doist", "Doist", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Doist" in str(e)
+        assert "boom: no route to host" in str(e)
+        assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_ashby_parses_jobs():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = load_fixture("ashby_response.json")
+
+    jobs = fetch_ashby("buffer", "Buffer", client=mock_client)
+
+    mock_client.get.assert_called_once_with(
+        "https://api.ashbyhq.com/posting-api/job-board/buffer", timeout=15
+    )
+    assert jobs[0].title == "Full Stack Engineer"
+    assert jobs[0].source == "ashby"
+
+
+def test_fetch_ashby_raises_on_non_200():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 404
+    try:
+        fetch_ashby("buffer", "Buffer", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "404" in str(e)
+
+
+def test_fetch_ashby_wraps_network_error():
+    mock_client = Mock()
+    mock_client.get.side_effect = requests.exceptions.ConnectionError("boom: no route to host")
+
+    try:
+        fetch_ashby("buffer", "Buffer", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Buffer" in str(e)
+        assert "boom: no route to host" in str(e)
+        assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_workable_parses_jobs():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = load_fixture("workable_response.json")
+
+    jobs = fetch_workable("zapier", "Zapier", client=mock_client)
+
+    mock_client.get.assert_called_once_with(
+        "https://apply.workable.com/api/v1/widget/accounts/zapier?details=true", timeout=15
+    )
+    assert jobs[0].title == "Backend Engineer"
+    assert jobs[0].url == "https://apply.workable.com/zapier/j/ABCDEF/"
+    assert jobs[0].source == "workable"
+
+
+def test_fetch_workable_raises_on_non_200():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 503
+    try:
+        fetch_workable("zapier", "Zapier", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "503" in str(e)
+
+
+def test_fetch_workable_wraps_network_error():
+    mock_client = Mock()
+    mock_client.get.side_effect = requests.exceptions.ConnectionError("boom: no route to host")
+
+    try:
+        fetch_workable("zapier", "Zapier", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Zapier" in str(e)
         assert "boom: no route to host" in str(e)
         assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
