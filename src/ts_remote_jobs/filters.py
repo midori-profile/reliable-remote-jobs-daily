@@ -2,7 +2,6 @@ from ts_remote_jobs.fetchers import JobPosting
 
 TS_KEYWORDS = (
     "typescript",
-    "ts ",
     "frontend",
     "front-end",
     "front end",

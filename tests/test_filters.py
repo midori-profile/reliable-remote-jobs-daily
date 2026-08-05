@@ -25,6 +25,19 @@ def test_rejects_unrelated_role():
     assert not is_typescript_relevant(make_job("Site Reliability Engineer", "Kubernetes and Go"))
 
 
+def test_rejects_sre_posting_with_ts_substring_false_positives():
+    description = (
+        "You will own our production infrastructure. Requirements: 5+ years "
+        "experience with Kubernetes and Go. Benefits include equity grants, "
+        "unlimited PTO, and a home office stipend. You'll work closely with "
+        "clients and stakeholders across multiple projects and markets, "
+        "manage cloud accounts, review contracts, and keep documents and "
+        "assets organized. We host guests at quarterly summits and track "
+        "costs across all posts."
+    )
+    assert not is_typescript_relevant(make_job("Site Reliability Engineer", description))
+
+
 def test_filter_jobs_combines_keyword_and_region():
     jobs = [
         make_job("TypeScript Engineer"),          # relevant, APAC location string but region comes from Company
