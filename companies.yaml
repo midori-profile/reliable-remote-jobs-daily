@@ -1,0 +1,209 @@
+# Remote-friendly, dev-recognizable tech companies with TypeScript-relevant job boards.
+# Each entry verified against its ATS API (or, failing that, its real careers page)
+# before being added here. See task notes for verification methodology.
+
+# --- Batch 1 ---
+- name: GitLab
+  ats: greenhouse
+  token: gitlab
+  careers_url: https://about.gitlab.com/jobs/
+  hires_from: [Global]
+
+- name: Automattic
+  ats: workable
+  token: automattic
+  careers_url: https://automattic.com/work-with-us/
+  hires_from: [Global]
+
+- name: Doist
+  ats: workable
+  token: doist
+  careers_url: https://doist.com/careers
+  hires_from: [Global]
+
+- name: Buffer
+  ats: ashby
+  token: buffer
+  careers_url: https://buffer.com/journey
+  hires_from: [Global]
+
+- name: Zapier
+  ats: ashby
+  token: zapier
+  careers_url: https://zapier.com/jobs
+  hires_from: [Global]
+
+- name: Elastic
+  ats: greenhouse
+  token: elastic
+  careers_url: https://www.elastic.co/careers/
+  hires_from: [Global]
+
+- name: Toptal
+  ats: lever
+  token: toptal
+  careers_url: https://www.toptal.com/careers
+  hires_from: [Global]
+
+# --- Batch 2 ---
+- name: Help Scout
+  ats: ashby
+  token: helpscout
+  careers_url: https://www.helpscout.com/company/careers/
+  hires_from: [Global]
+
+- name: Basecamp
+  ats: workable
+  token: 37signals
+  careers_url: https://37signals.com/jobs
+  hires_from: [Global]
+
+- name: DuckDuckGo
+  ats: ashby
+  token: duck-duck-go
+  careers_url: https://duckduckgo.com/hiring
+  hires_from: [Global]
+
+- name: Mozilla
+  ats: greenhouse
+  token: mozilla
+  careers_url: https://www.mozilla.org/en-US/careers/
+  hires_from: [US, EU, UK]
+
+- name: Wikimedia Foundation
+  ats: greenhouse
+  token: wikimedia
+  careers_url: https://wikimediafoundation.org/jobs/
+  hires_from: [Global]
+
+- name: Ghost
+  ats: greenhouse
+  token: ghost
+  careers_url: https://careers.ghost.org/
+  hires_from: [Global]
+
+- name: Close
+  ats: ashby
+  token: close
+  careers_url: https://close.com/careers
+  hires_from: [Global]
+
+# --- Batch 3 ---
+- name: Chargebee
+  ats: other
+  careers_url: https://www.chargebee.com/careers/
+  hires_from: [Global]
+
+- name: Canonical
+  ats: greenhouse
+  token: canonical
+  careers_url: https://canonical.com/careers
+  hires_from: [Global]
+
+- name: Netlify
+  ats: greenhouse
+  token: netlify
+  careers_url: https://www.netlify.com/careers/
+  hires_from: [Global]
+
+- name: Vercel
+  ats: greenhouse
+  token: vercel
+  careers_url: https://vercel.com/careers
+  hires_from: [US, EU, UK]
+
+- name: Supabase
+  ats: ashby
+  token: supabase
+  careers_url: https://supabase.com/careers
+  hires_from: [Global]
+
+- name: PlanetScale
+  ats: greenhouse
+  token: planetscale
+  careers_url: https://planetscale.com/careers
+  hires_from: [US]
+
+- name: Render
+  ats: ashby
+  token: render
+  careers_url: https://render.com/careers
+  hires_from: [US]
+
+# --- Batch 4 ---
+- name: Linear
+  ats: ashby
+  token: linear
+  careers_url: https://linear.app/careers
+  hires_from: [US, EU]
+
+- name: Clerk
+  ats: workable
+  token: clerk-dev
+  careers_url: https://clerk.com/careers
+  hires_from: [Global]
+
+- name: Sanity
+  ats: ashby
+  token: sanity
+  careers_url: https://www.sanity.io/careers
+  hires_from: [US, EU, UK]
+
+- name: Contentful
+  ats: greenhouse
+  token: contentful
+  careers_url: https://www.contentful.com/careers/
+  hires_from: [Global]
+
+- name: ConvertKit
+  ats: ashby
+  token: kit
+  careers_url: https://kit.com/careers
+  hires_from: [Global]
+
+- name: Buildkite
+  ats: greenhouse
+  token: buildkite
+  careers_url: https://buildkite.com/about/careers/
+  hires_from: [Global]
+
+# --- Batch 5 ---
+- name: Remote.com
+  ats: greenhouse
+  token: remote
+  careers_url: https://remote.com/careers
+  hires_from: [Global]
+
+- name: Deel
+  ats: other
+  careers_url: https://www.deel.com/careers
+  hires_from: [Global]
+
+- name: Oyster HR
+  ats: workable
+  token: oysterhr
+  careers_url: https://www.oysterhr.com/careers
+  hires_from: [Global]
+
+- name: 1Password
+  ats: ashby
+  token: 1password
+  careers_url: https://1password.com/careers
+  hires_from: [US]
+
+- name: Wildbit
+  ats: workable
+  token: wildbit
+  careers_url: https://www.wildbit.com/jobs
+  hires_from: [US, EU]
+
+- name: Fastmail
+  ats: workable
+  token: fastmail-1
+  careers_url: https://www.fastmail.com/about/careers/
+  hires_from: [US, APAC]
+
+- name: Discourse
+  ats: other
+  careers_url: https://www.discourse.org/team
+  hires_from: [Global]
