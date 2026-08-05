@@ -3,10 +3,13 @@ from unittest.mock import Mock
 
 import requests
 
+from ts_remote_jobs.companies import Company
 from ts_remote_jobs.fetchers import (
     FetchError,
     JobPosting,
     fetch_ashby,
+    fetch_for_company,
+    fetch_generic,
     fetch_greenhouse,
     fetch_lever,
     fetch_workable,
@@ -232,3 +235,102 @@ def test_fetch_workable_raises_fetch_error_on_malformed_shape():
         assert False, "expected FetchError"
     except FetchError as e:
         assert "Zapier" in str(e)
+
+
+def test_fetch_generic_parses_job_links_and_ignores_others():
+    html = """
+    <html>
+      <body>
+        <a href="/about">About us</a>
+        <a href="/jobs/1">Senior TypeScript Engineer</a>
+        <a href="https://example.com/jobs/2">Frontend Developer</a>
+        <a href="/jobs/3">Office Manager</a>
+        <a href="/jobs/4">Software Engineer, Backend</a>
+      </body>
+    </html>
+    """
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.text = html
+
+    jobs = fetch_generic("https://example.com/careers", "Example Co", client=mock_client)
+
+    mock_client.get.assert_called_once_with("https://example.com/careers", timeout=15)
+    titles = [job.title for job in jobs]
+    assert "Senior TypeScript Engineer" in titles
+    assert "Frontend Developer" in titles
+    assert "Software Engineer, Backend" in titles
+    assert "About us" not in titles
+    assert "Office Manager" not in titles
+
+    ts_job = next(job for job in jobs if job.title == "Senior TypeScript Engineer")
+    assert ts_job.company == "Example Co"
+    assert ts_job.location == "Unknown"
+    assert ts_job.url == "https://example.com/jobs/1"
+    assert ts_job.source == "generic"
+    assert ts_job.description_text == ""
+
+    external_job = next(job for job in jobs if job.title == "Frontend Developer")
+    assert external_job.url == "https://example.com/jobs/2"
+
+
+def test_fetch_generic_raises_on_non_200():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 404
+    try:
+        fetch_generic("https://example.com/careers", "Example Co", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "404" in str(e)
+
+
+def test_fetch_generic_wraps_network_error():
+    mock_client = Mock()
+    mock_client.get.side_effect = requests.exceptions.ConnectionError("boom: no route to host")
+
+    try:
+        fetch_generic("https://example.com/careers", "Example Co", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Example Co" in str(e)
+        assert "boom: no route to host" in str(e)
+        assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_for_company_dispatches_to_greenhouse():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = load_fixture("greenhouse_response.json")
+
+    company = Company(
+        name="GitLab",
+        ats="greenhouse",
+        token="gitlab",
+        careers_url="https://gitlab.com/careers",
+    )
+
+    jobs = fetch_for_company(company, client=mock_client)
+
+    mock_client.get.assert_called_once_with(
+        "https://boards-api.greenhouse.io/v1/boards/gitlab/jobs?content=true",
+        timeout=15,
+    )
+    assert jobs[0].source == "greenhouse"
+
+
+def test_fetch_for_company_dispatches_to_generic():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.text = '<a href="/jobs/1">Software Engineer</a>'
+
+    company = Company(
+        name="Example Co",
+        ats="other",
+        token=None,
+        careers_url="https://example.com/careers",
+    )
+
+    jobs = fetch_for_company(company, client=mock_client)
+
+    mock_client.get.assert_called_once_with("https://example.com/careers", timeout=15)
+    assert jobs[0].source == "generic"

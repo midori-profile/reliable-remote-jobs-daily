@@ -1,10 +1,13 @@
 from dataclasses import dataclass
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
 
 DEFAULT_TIMEOUT = 15
+
+JOB_LINK_KEYWORDS = ("engineer", "developer", "typescript", "frontend", "software")
 
 
 class FetchError(Exception):
@@ -25,15 +28,23 @@ def _strip_html(html: str) -> str:
     return BeautifulSoup(html or "", "html.parser").get_text(" ", strip=True)
 
 
-def _get_json(client, url: str, source: str, company_name: str):
+def _get(client, url: str, source: str, company_name: str):
     try:
         resp = client.get(url, timeout=DEFAULT_TIMEOUT)
         if resp.status_code != 200:
             raise FetchError(f"{source} fetch failed for {company_name}: HTTP {resp.status_code}")
-        return resp.json()
+        return resp
     except FetchError:
         raise
-    except (requests.RequestException, ValueError) as e:
+    except requests.RequestException as e:
+        raise FetchError(f"{source} fetch failed for {company_name}: {e}") from e
+
+
+def _get_json(client, url: str, source: str, company_name: str):
+    resp = _get(client, url, source, company_name)
+    try:
+        return resp.json()
+    except ValueError as e:
         raise FetchError(f"{source} fetch failed for {company_name}: {e}") from e
 
 
@@ -111,3 +122,42 @@ def fetch_workable(token: str, company_name: str, client=requests) -> list[JobPo
         ]
     except (KeyError, TypeError, AttributeError) as e:
         raise FetchError(f"workable fetch failed for {company_name}: {e}") from e
+
+
+def fetch_generic(careers_url: str, company_name: str, client=requests) -> list[JobPosting]:
+    resp = _get(client, careers_url, "generic", company_name)
+    try:
+        soup = BeautifulSoup(resp.text, "html.parser")
+        jobs = []
+        for link in soup.find_all("a", href=True):
+            text = link.get_text(strip=True)
+            if not text:
+                continue
+            if any(keyword in text.lower() for keyword in JOB_LINK_KEYWORDS):
+                jobs.append(
+                    JobPosting(
+                        company=company_name,
+                        title=text,
+                        location="Unknown",
+                        url=urljoin(careers_url, link["href"]),
+                        source="generic",
+                        description_text="",
+                    )
+                )
+        return jobs
+    except (KeyError, TypeError, AttributeError) as e:
+        raise FetchError(f"generic fetch failed for {company_name}: {e}") from e
+
+
+def fetch_for_company(company, client=requests) -> list[JobPosting]:
+    if company.ats == "greenhouse":
+        return fetch_greenhouse(company.token, company.name, client=client)
+    if company.ats == "lever":
+        return fetch_lever(company.token, company.name, client=client)
+    if company.ats == "ashby":
+        return fetch_ashby(company.token, company.name, client=client)
+    if company.ats == "workable":
+        return fetch_workable(company.token, company.name, client=client)
+    if company.ats == "other":
+        return fetch_generic(company.careers_url, company.name, client=client)
+    raise FetchError(f"unknown ats '{company.ats}' for {company.name}")
