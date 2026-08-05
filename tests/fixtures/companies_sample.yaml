@@ -1,0 +1,11 @@
+- name: GitLab
+  ats: greenhouse
+  token: gitlab
+  careers_url: https://about.gitlab.com/jobs/
+  hires_from: [Global]
+
+- name: Acme Custom Corp
+  ats: other
+  token: null
+  careers_url: https://acme.example.com/careers
+  hires_from: [US]
