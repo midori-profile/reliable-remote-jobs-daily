@@ -72,6 +72,18 @@ def test_fetch_greenhouse_wraps_network_error():
         assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
 
 
+def test_fetch_greenhouse_raises_fetch_error_on_malformed_shape():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = ["unexpected", "list", "shape"]
+
+    try:
+        fetch_greenhouse("gitlab", "GitLab", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "GitLab" in str(e)
+
+
 def test_fetch_lever_parses_jobs():
     mock_client = Mock()
     mock_client.get.return_value.status_code = 200
@@ -111,6 +123,18 @@ def test_fetch_lever_wraps_network_error():
         assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
 
 
+def test_fetch_lever_raises_fetch_error_on_malformed_shape():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = {"unexpected": "dict shape"}
+
+    try:
+        fetch_lever("doist", "Doist", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Doist" in str(e)
+
+
 def test_fetch_ashby_parses_jobs():
     mock_client = Mock()
     mock_client.get.return_value.status_code = 200
@@ -146,6 +170,18 @@ def test_fetch_ashby_wraps_network_error():
         assert "Buffer" in str(e)
         assert "boom: no route to host" in str(e)
         assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_ashby_raises_fetch_error_on_malformed_shape():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = {"jobs": ["not-a-dict"]}
+
+    try:
+        fetch_ashby("buffer", "Buffer", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Buffer" in str(e)
 
 
 def test_fetch_workable_parses_jobs():
@@ -184,3 +220,15 @@ def test_fetch_workable_wraps_network_error():
         assert "Zapier" in str(e)
         assert "boom: no route to host" in str(e)
         assert isinstance(e.__cause__, requests.exceptions.ConnectionError)
+
+
+def test_fetch_workable_raises_fetch_error_on_malformed_shape():
+    mock_client = Mock()
+    mock_client.get.return_value.status_code = 200
+    mock_client.get.return_value.json.return_value = ["unexpected", "list", "shape"]
+
+    try:
+        fetch_workable("zapier", "Zapier", client=mock_client)
+        assert False, "expected FetchError"
+    except FetchError as e:
+        assert "Zapier" in str(e)

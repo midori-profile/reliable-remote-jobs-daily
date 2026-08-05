@@ -52,7 +52,7 @@ def fetch_greenhouse(token: str, company_name: str, client=requests) -> list[Job
             )
             for job in data.get("jobs", [])
         ]
-    except KeyError as e:
+    except (KeyError, TypeError, AttributeError) as e:
         raise FetchError(f"greenhouse fetch failed for {company_name}: {e}") from e
 
 
@@ -71,7 +71,7 @@ def fetch_lever(token: str, company_name: str, client=requests) -> list[JobPosti
             )
             for posting in data
         ]
-    except KeyError as e:
+    except (KeyError, TypeError, AttributeError) as e:
         raise FetchError(f"lever fetch failed for {company_name}: {e}") from e
 
 
@@ -90,7 +90,7 @@ def fetch_ashby(token: str, company_name: str, client=requests) -> list[JobPosti
             )
             for job in data.get("jobs", [])
         ]
-    except KeyError as e:
+    except (KeyError, TypeError, AttributeError) as e:
         raise FetchError(f"ashby fetch failed for {company_name}: {e}") from e
 
 
@@ -109,5 +109,5 @@ def fetch_workable(token: str, company_name: str, client=requests) -> list[JobPo
             )
             for job in data.get("jobs", [])
         ]
-    except KeyError as e:
+    except (KeyError, TypeError, AttributeError) as e:
         raise FetchError(f"workable fetch failed for {company_name}: {e}") from e
