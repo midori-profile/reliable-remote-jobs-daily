@@ -4,6 +4,9 @@ from ts_remote_jobs.companies import Company, CompanyConfigError, load_companies
 
 FIXTURE = "tests/fixtures/companies_sample.yaml"
 INVALID_FIXTURE = "tests/fixtures/companies_invalid.yaml"
+MISSING_TOKEN_FIXTURE = "tests/fixtures/companies_missing_token.yaml"
+INVALID_REGION_FIXTURE = "tests/fixtures/companies_invalid_region.yaml"
+APAC_LOWER_FIXTURE = "tests/fixtures/companies_apac_lower.yaml"
 
 
 def test_loads_valid_entries():
@@ -40,3 +43,19 @@ def test_rejects_region_not_listed():
     acme = next(c for c in companies if c.name == "Acme Custom Corp")
     assert acme.accepts_region("APAC") is False
     assert acme.accepts_region("US") is True
+
+
+def test_missing_token_for_ats_requiring_token_raises():
+    with pytest.raises(CompanyConfigError, match="No Token Co.*token"):
+        load_companies(MISSING_TOKEN_FIXTURE)
+
+
+def test_invalid_hires_from_region_raises():
+    with pytest.raises(CompanyConfigError, match="Bad Region Co.*Mars"):
+        load_companies(INVALID_REGION_FIXTURE)
+
+
+def test_accepts_region_is_case_insensitive():
+    companies = load_companies(APAC_LOWER_FIXTURE)
+    apac_co = companies[0]
+    assert apac_co.accepts_region("apac") is True

@@ -1,0 +1,5 @@
+- name: Bad Region Co
+  ats: greenhouse
+  token: badregion
+  careers_url: https://badregion.example.com/careers
+  hires_from: [Mars]

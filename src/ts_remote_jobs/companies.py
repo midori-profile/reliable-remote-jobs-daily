@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 import yaml
 
 VALID_ATS = {"greenhouse", "lever", "ashby", "workable", "other"}
+VALID_REGIONS = {"Global", "US", "EU", "APAC", "LATAM", "UK"}
 
 
 class CompanyConfigError(ValueError):
@@ -18,7 +19,8 @@ class Company:
     hires_from: list[str] = field(default_factory=lambda: ["Global"])
 
     def accepts_region(self, region: str) -> bool:
-        return "Global" in self.hires_from or region in self.hires_from
+        hires_from_folded = {r.casefold() for r in self.hires_from}
+        return "global" in hires_from_folded or region.casefold() in hires_from_folded
 
 
 def load_companies(path: str) -> list[Company]:
@@ -45,6 +47,13 @@ def load_companies(path: str) -> list[Company]:
             )
         if ats not in VALID_ATS:
             raise CompanyConfigError(f"{name}: unknown ats '{ats}'")
+        if ats != "other" and not entry.get("token"):
+            raise CompanyConfigError(f"{name}: ats '{ats}' requires a token")
+
+        hires_from = entry.get("hires_from") or ["Global"]
+        for region in hires_from:
+            if region not in VALID_REGIONS:
+                raise CompanyConfigError(f"{name}: unknown region '{region}' in hires_from")
 
         companies.append(
             Company(
@@ -52,7 +61,7 @@ def load_companies(path: str) -> list[Company]:
                 ats=ats,
                 token=entry.get("token"),
                 careers_url=careers_url,
-                hires_from=entry.get("hires_from") or ["Global"],
+                hires_from=hires_from,
             )
         )
     return companies
