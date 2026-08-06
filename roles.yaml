@@ -23,8 +23,8 @@ ai_infra_engineer:
 
 mobile:
   label: "Mobile Engineer"
-  keywords: ["mobile engineer", "mobile developer", "react native", "swift", "kotlin", "flutter"]
-  boundary_keywords: ["ios", "android"]
+  keywords: ["mobile engineer", "mobile developer", "react native", "kotlin", "flutter"]
+  boundary_keywords: ["ios", "android", "swift"]
 
 devops_sre:
   label: "DevOps / SRE"
