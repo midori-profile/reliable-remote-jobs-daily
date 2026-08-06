@@ -5,7 +5,7 @@ frontend:
 
 backend:
   label: "Backend Engineer"
-  keywords: ["backend", "back-end", "back end", "server-side", "microservice", "microservices", "golang", "go developer", "go engineer", "python", "node.js", "nodejs"]
+  keywords: ["backend", "back-end", "back end", "server-side", "microservice", "golang", "go developer", "go engineer", "python", "node.js", "nodejs"]
   boundary_keywords: ["api", "rust", "java"]
 
 fullstack:
