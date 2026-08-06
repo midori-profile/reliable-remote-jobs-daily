@@ -53,3 +53,44 @@ def test_only_selected_categories_are_checked():
     result = categorize_jobs([job], ROLES, ["backend"])
     assert "frontend" not in result
     assert result["backend"] == []
+
+
+def test_single_incidental_keyword_hit_in_description_does_not_match():
+    # Title doesn't match FRONTEND (keywords: frontend, typescript; boundary: react).
+    # Description has exactly ONE keyword hit (typescript, mentioned once, incidentally).
+    # A single incidental mention should not be enough to count as a match.
+    job = make_job(
+        "Manager, People Analytics",
+        "Familiarity with scripting languages such as Python, R, or TypeScript is a plus.",
+    )
+    result = categorize_jobs([job], ROLES, ["frontend"])
+    assert result["frontend"] == []
+
+
+def test_two_or_more_distinct_keyword_hits_in_description_matches():
+    # Title doesn't match; description is saturated with 2+ distinct keyword/boundary hits
+    # (typescript + react) — a much stronger signal the posting is actually about the role.
+    job = make_job(
+        "Manager, People Analytics",
+        "We build our tooling with TypeScript and React on a daily basis.",
+    )
+    result = categorize_jobs([job], ROLES, ["frontend"])
+    assert result["frontend"] == [job]
+
+
+def test_gitlab_lifecycle_marketing_manager_false_positive_regression():
+    # Real discovered false positive: GitLab "Senior Lifecycle Marketing Manager" matched
+    # frontend's css boundary_keyword via a single incidental mention of css in an
+    # email-design context. This is a marketing role, not a frontend engineering job.
+    marketing_frontend = RoleCategory(
+        key="frontend", label="Frontend Engineer",
+        keywords=("frontend", "front-end", "front end", "javascript", "typescript"),
+        boundary_keywords=("react", "vue", "angular", "css"),
+    )
+    job = make_job(
+        "Senior Lifecycle Marketing Manager",
+        "You should have working knowledge of html and css for email design "
+        "or troubleshooting, as well as experience with marketing automation tools.",
+    )
+    result = categorize_jobs([job], {"frontend": marketing_frontend}, ["frontend"])
+    assert result["frontend"] == []
