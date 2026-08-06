@@ -1,6 +1,6 @@
 # ts-remote-jobs
 
-A daily-refreshed, machine-readable list of remote-friendly (but not big-tech) companies, scanned directly against their hiring systems for TypeScript/frontend roles — no stale job-board aggregators involved.
+A daily-refreshed, machine-readable list of remote-friendly companies, scanned directly against their hiring systems for TypeScript roles — no stale job-board aggregators involved.
 
 <!-- LATEST-SCAN:START -->
 **2026-08-06** — Found 110 matching role(s).
@@ -9,7 +9,7 @@ Full report: [reports/2026-08-06.md](reports/2026-08-06.md)
 
 ## Why this exists
 
-Most "remote jobs" lists are aggregator scrapes that lag days or weeks behind reality, and most searches for "Hong Kong Remote" / "APAC Remote" miss postings from companies that just say "Remote" or "Distributed." This project takes a different approach: a curated list of real companies (`companies.yaml`, currently 34 of them — GitLab, Automattic, Zapier, Vercel, Supabase, 1Password, and more), each with its actual ATS (Greenhouse/Lever/Ashby/Workable) recorded, scanned directly via their public job-board APIs every day.
+Most "remote jobs" lists are aggregator scrapes that lag days or weeks behind reality, and they're often full of scam postings and disreputable companies with no real vetting. This project takes a different approach: a curated list of real, vetted companies, each with its actual ATS (Greenhouse/Lever/Ashby/Workable) recorded, scanned directly via their public job-board APIs every day.
 
 ## Usage
 
