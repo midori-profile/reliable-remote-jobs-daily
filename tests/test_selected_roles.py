@@ -19,3 +19,18 @@ def test_unknown_role_key_raises():
 def test_empty_selection_raises():
     with pytest.raises(SelectedRolesError, match="empty"):
         load_selected_roles("tests/fixtures/selected_roles_empty.yaml", ROLES)
+
+
+def test_non_list_selection_raises():
+    with pytest.raises(SelectedRolesError, match="must be a list"):
+        load_selected_roles("tests/fixtures/selected_roles_not_a_list.yaml", ROLES)
+
+
+def test_non_string_entry_raises_selected_roles_error():
+    with pytest.raises(SelectedRolesError):
+        load_selected_roles("tests/fixtures/selected_roles_non_string_entry.yaml", ROLES)
+
+
+def test_duplicate_key_is_deduped_preserving_order():
+    selected = load_selected_roles("tests/fixtures/selected_roles_duplicate_key.yaml", ROLES)
+    assert selected == ["frontend", "backend"]
