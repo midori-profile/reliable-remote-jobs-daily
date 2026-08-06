@@ -1,34 +1,33 @@
 import re
 
 from remote_jobs_daily.fetchers import JobPosting
-
-# "react" is handled separately as a word-boundary regex (see _REACT_PATTERN)
-# below, since a plain substring match on "react" false-positives on words
-# like "reactive"/"reaction" that have nothing to do with the React
-# framework. The other keywords are long/specific enough not to have this
-# problem, so they stay as plain substring checks.
-TS_KEYWORDS = (
-    "typescript",
-    "frontend",
-    "front-end",
-    "front end",
-    "node.js",
-    "nodejs",
-    "javascript",
-    "full stack",
-    "fullstack",
-    "full-stack",
-)
-
-_REACT_PATTERN = re.compile(r"\breact\b", re.IGNORECASE)
+from remote_jobs_daily.roles import RoleCategory
 
 
-def is_typescript_relevant(job: JobPosting) -> bool:
-    haystack = f"{job.title} {job.description_text}".lower()
-    if any(keyword in haystack for keyword in TS_KEYWORDS):
-        return True
-    return bool(_REACT_PATTERN.search(haystack))
+def _build_matcher(category: RoleCategory):
+    plain_keywords = tuple(k.lower() for k in category.keywords)
+    boundary_patterns = [
+        re.compile(rf"\b{re.escape(k)}\b", re.IGNORECASE) for k in category.boundary_keywords
+    ]
+
+    def matches(haystack_lower: str) -> bool:
+        if any(k in haystack_lower for k in plain_keywords):
+            return True
+        return any(p.search(haystack_lower) for p in boundary_patterns)
+
+    return matches
 
 
-def filter_jobs(jobs: list[JobPosting]) -> list[JobPosting]:
-    return [job for job in jobs if is_typescript_relevant(job)]
+def categorize_jobs(
+    jobs: list[JobPosting], roles: dict[str, RoleCategory], selected_keys: list[str]
+) -> dict[str, list[JobPosting]]:
+    matchers = {key: _build_matcher(roles[key]) for key in selected_keys}
+    result: dict[str, list[JobPosting]] = {key: [] for key in selected_keys}
+
+    for job in jobs:
+        haystack = f"{job.title} {job.description_text}".lower()
+        for key, matcher in matchers.items():
+            if matcher(haystack):
+                result[key].append(job)
+
+    return result
