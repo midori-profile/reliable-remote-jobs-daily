@@ -3,7 +3,8 @@
 A daily-refreshed, machine-readable list of remote-friendly (but not big-tech) companies, scanned directly against their hiring systems for TypeScript/frontend roles — no stale job-board aggregators involved.
 
 <!-- LATEST-SCAN:START -->
-(no scan yet — run `scripts/run_daily.sh`)
+**2026-08-06** — Found 125 matching role(s).
+Full report: [reports/2026-08-06.md](reports/2026-08-06.md)
 <!-- LATEST-SCAN:END -->
 
 ## Why this exists
