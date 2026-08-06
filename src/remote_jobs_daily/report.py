@@ -1,7 +1,7 @@
 import re
 from datetime import date
 
-from ts_remote_jobs.fetchers import JobPosting
+from remote_jobs_daily.fetchers import JobPosting
 
 
 def _escape_cell(value: str) -> str:

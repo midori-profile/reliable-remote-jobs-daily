@@ -1,12 +1,12 @@
 """Exercises scripts/scan.py's actual main() entrypoint (exit-code contract),
-since scripts/scan.py is a standalone script (not part of the ts_remote_jobs
+since scripts/scan.py is a standalone script (not part of the remote_jobs_daily
 package) it is loaded here via importlib by file path.
 """
 import importlib.util
 from pathlib import Path
 from unittest.mock import Mock
 
-from ts_remote_jobs.fetchers import FetchError, JobPosting
+from remote_jobs_daily.fetchers import FetchError, JobPosting
 
 SCAN_PATH = Path(__file__).resolve().parent.parent / "scripts" / "scan.py"
 FIXTURES = Path(__file__).resolve().parent / "fixtures"

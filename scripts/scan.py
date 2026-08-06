@@ -7,11 +7,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from ts_remote_jobs.companies import load_companies, CompanyConfigError
-from ts_remote_jobs.fetchers import fetch_for_company, FetchError
-from ts_remote_jobs.filters import filter_jobs
-from ts_remote_jobs.report import render_report
-from ts_remote_jobs.readme import update_latest_scan_section, MarkersNotFoundError
+from remote_jobs_daily.companies import load_companies, CompanyConfigError
+from remote_jobs_daily.fetchers import fetch_for_company, FetchError
+from remote_jobs_daily.filters import filter_jobs
+from remote_jobs_daily.report import render_report
+from remote_jobs_daily.readme import update_latest_scan_section, MarkersNotFoundError
 
 
 def main(argv=None):

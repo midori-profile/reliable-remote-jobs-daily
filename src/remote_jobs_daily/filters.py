@@ -1,6 +1,6 @@
 import re
 
-from ts_remote_jobs.fetchers import JobPosting
+from remote_jobs_daily.fetchers import JobPosting
 
 # "react" is handled separately as a word-boundary regex (see _REACT_PATTERN)
 # below, since a plain substring match on "react" false-positives on words

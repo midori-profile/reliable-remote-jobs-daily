@@ -1,5 +1,5 @@
-from ts_remote_jobs.filters import is_typescript_relevant, filter_jobs
-from ts_remote_jobs.fetchers import JobPosting
+from remote_jobs_daily.filters import is_typescript_relevant, filter_jobs
+from remote_jobs_daily.fetchers import JobPosting
 
 
 def make_job(title, description=""):

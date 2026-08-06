@@ -3,8 +3,8 @@ from unittest.mock import Mock
 
 import requests
 
-from ts_remote_jobs.companies import Company
-from ts_remote_jobs.fetchers import (
+from remote_jobs_daily.companies import Company
+from remote_jobs_daily.fetchers import (
     FetchError,
     JobPosting,
     _strip_html,

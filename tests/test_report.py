@@ -1,7 +1,7 @@
 from datetime import date
 
-from ts_remote_jobs.report import render_report
-from ts_remote_jobs.fetchers import JobPosting
+from remote_jobs_daily.report import render_report
+from remote_jobs_daily.fetchers import JobPosting
 
 
 def test_render_report_lists_jobs_and_unparsed():

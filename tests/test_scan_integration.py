@@ -2,10 +2,10 @@ import json
 from datetime import date
 from unittest.mock import Mock
 
-from ts_remote_jobs.companies import load_companies
-from ts_remote_jobs.fetchers import fetch_for_company, FetchError
-from ts_remote_jobs.filters import filter_jobs
-from ts_remote_jobs.report import render_report
+from remote_jobs_daily.companies import load_companies
+from remote_jobs_daily.fetchers import fetch_for_company, FetchError
+from remote_jobs_daily.filters import filter_jobs
+from remote_jobs_daily.report import render_report
 
 
 def test_full_pipeline_with_mixed_success_and_failure():

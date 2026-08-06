@@ -1,6 +1,6 @@
 from datetime import date
 
-from ts_remote_jobs.readme import update_latest_scan_section
+from remote_jobs_daily.readme import update_latest_scan_section
 
 TEMPLATE = """# ts-remote-jobs
 
@@ -27,7 +27,7 @@ def test_replaces_content_between_markers():
 
 
 def test_raises_if_markers_missing():
-    from ts_remote_jobs.readme import MarkersNotFoundError
+    from remote_jobs_daily.readme import MarkersNotFoundError
     try:
         update_latest_scan_section("no markers here", "x", "y", date(2026, 8, 5))
         assert False, "expected MarkersNotFoundError"
@@ -36,7 +36,7 @@ def test_raises_if_markers_missing():
 
 
 def test_raises_if_markers_reversed():
-    from ts_remote_jobs.readme import MarkersNotFoundError
+    from remote_jobs_daily.readme import MarkersNotFoundError
 
     reversed_template = """# ts-remote-jobs
 

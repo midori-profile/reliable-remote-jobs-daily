@@ -1,6 +1,6 @@
 import pytest
 
-from ts_remote_jobs.companies import Company, CompanyConfigError, load_companies
+from remote_jobs_daily.companies import Company, CompanyConfigError, load_companies
 
 FIXTURE = "tests/fixtures/companies_sample.yaml"
 INVALID_FIXTURE = "tests/fixtures/companies_invalid.yaml"
