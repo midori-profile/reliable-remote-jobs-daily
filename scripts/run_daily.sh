@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 # lock dir behind; if run_daily.sh ever refuses to start with a "lock dir
 # exists" message and no other run is actually in progress, manually remove
 # it with `rmdir "$LOCK_DIR"`.
-LOCK_DIR="/tmp/ts-remote-jobs-run-daily.lock"
+LOCK_DIR="/tmp/reliable-remote-jobs-daily-run-daily.lock"
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   echo "another run_daily.sh appears to be running (lock dir exists: $LOCK_DIR); exiting" >&2
   exit 1
@@ -25,8 +25,8 @@ python scripts/scan.py --region APAC
 # "nothing to commit" failure here.
 if [[ -n "$(git status --porcelain -- reports/ README.md)" ]]; then
   git add reports/
-  # README.md doesn't exist until Task 12 lands; guard so this script keeps
-  # working before then, and still picks it up once it's present.
+  # Guard on existence rather than assuming README.md is always present,
+  # in case someone runs this script from an unusual/partial checkout.
   [[ -f README.md ]] && git add README.md
   git commit -m "chore: daily scan $(date +%Y-%m-%d)"
   git push
