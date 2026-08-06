@@ -18,7 +18,7 @@ ai_agent_engineer:
 
 ai_infra_engineer:
   label: "AI Infra Engineer"
-  keywords: ["ai infrastructure", "ml infrastructure", "ml platform", "ai platform", "model serving", "gpu cluster"]
+  keywords: ["ai infrastructure", "ml infrastructure", "ml platform", "model serving", "gpu cluster"]
   boundary_keywords: ["llm", "mlops"]
 
 mobile:
