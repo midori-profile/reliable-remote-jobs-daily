@@ -1,20 +1,17 @@
-import json
+# tests/test_scan_integration.py
 from datetime import date
 from unittest.mock import Mock
-
 from remote_jobs_daily.companies import load_companies
+from remote_jobs_daily.roles import load_roles
 from remote_jobs_daily.fetchers import fetch_for_company, FetchError
-from remote_jobs_daily.filters import filter_jobs
+from remote_jobs_daily.filters import categorize_jobs
 from remote_jobs_daily.report import render_report
 
 
-def test_full_pipeline_with_mixed_success_and_failure():
-    # Note: Task 1 split the original single fixture into companies_sample.yaml
-    # (valid entries only: GitLab, Acme Custom Corp) and companies_invalid.yaml
-    # (the entry missing careers_url), because load_companies() is fail-fast and
-    # can't return a normal list AND raise from the same file/call. This test
-    # only needs valid entries, so it uses companies_sample.yaml directly.
+def test_full_pipeline_with_categories_and_region_exclusion():
     companies = load_companies("tests/fixtures/companies_sample.yaml")
+    roles = load_roles("tests/fixtures/roles_sample.yaml")  # frontend, backend
+    selected = ["frontend", "backend"]
 
     mock_client = Mock()
 
@@ -24,7 +21,7 @@ def test_full_pipeline_with_mixed_success_and_failure():
             resp.status_code = 200
             resp.json.return_value = {
                 "jobs": [{
-                    "id": 1, "title": "TypeScript Engineer",
+                    "id": 1, "title": "Frontend Engineer",
                     "absolute_url": "https://x.example.com/1",
                     "location": {"name": "Remote - APAC"}, "content": "",
                 }]
@@ -44,10 +41,11 @@ def test_full_pipeline_with_mixed_success_and_failure():
         except FetchError:
             unparsed.append(company.name)
 
-    relevant = filter_jobs(all_jobs)
-    report = render_report(relevant, unparsed, run_date=date(2026, 8, 5))
+    grouped = categorize_jobs(all_jobs, roles, selected)
+    categorized = [(roles[key].label, grouped[key]) for key in selected]
+    report = render_report(categorized, unparsed, run_date=date(2026, 8, 6))
 
-    assert "TypeScript Engineer" in report
-    # Acme is US-only, so it's excluded by region before it ever gets fetched —
-    # it must NOT show up in "未能解析" (that section is for fetch failures, not region exclusions)
+    assert "Frontend Engineer" in report
+    assert "## Backend Engineer" in report
+    # Acme is US-only, excluded by region before ever being fetched — not "未能解析"
     assert "Acme Custom Corp" not in report

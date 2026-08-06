@@ -27,7 +27,7 @@ def test_main_exits_0_on_normal_successful_run(tmp_path, monkeypatch):
             return [
                 JobPosting(
                     company="GitLab",
-                    title="TypeScript Engineer",
+                    title="Senior Frontend Developer",
                     location="Remote - APAC",
                     url="https://x.example.com/1",
                     source="greenhouse",
@@ -44,6 +44,8 @@ def test_main_exits_0_on_normal_successful_run(tmp_path, monkeypatch):
     exit_code = scan.main(
         [
             "--companies-file", str(FIXTURES / "companies_sample.yaml"),
+            "--roles-file", str(FIXTURES / "roles_sample.yaml"),
+            "--selected-roles-file", str(FIXTURES / "selected_roles_sample.yaml"),
             "--output-dir", str(output_dir),
             "--readme", str(readme_path),
             "--region", "APAC",
@@ -53,7 +55,7 @@ def test_main_exits_0_on_normal_successful_run(tmp_path, monkeypatch):
     assert exit_code == 0
     report_files = list(output_dir.glob("*.md"))
     assert len(report_files) == 1
-    assert "TypeScript Engineer" in report_files[0].read_text(encoding="utf-8")
+    assert "Senior Frontend Developer" in report_files[0].read_text(encoding="utf-8")
 
 
 def test_main_exits_1_on_company_config_error(tmp_path):
@@ -65,6 +67,8 @@ def test_main_exits_1_on_company_config_error(tmp_path):
     exit_code = scan.main(
         [
             "--companies-file", str(FIXTURES / "companies_invalid.yaml"),
+            "--roles-file", str(FIXTURES / "roles_sample.yaml"),
+            "--selected-roles-file", str(FIXTURES / "selected_roles_sample.yaml"),
             "--output-dir", str(output_dir),
             "--readme", str(readme_path),
             "--region", "APAC",
@@ -89,6 +93,8 @@ def test_main_exits_1_when_all_attempted_companies_fail(tmp_path, monkeypatch):
     exit_code = scan.main(
         [
             "--companies-file", str(FIXTURES / "companies_sample.yaml"),
+            "--roles-file", str(FIXTURES / "roles_sample.yaml"),
+            "--selected-roles-file", str(FIXTURES / "selected_roles_sample.yaml"),
             "--output-dir", str(output_dir),
             "--readme", str(readme_path),
             "--region", "APAC",
@@ -98,3 +104,50 @@ def test_main_exits_1_when_all_attempted_companies_fail(tmp_path, monkeypatch):
     assert exit_code == 1
     # No report should be written when every attempted company failed to fetch.
     assert not output_dir.exists()
+
+
+def test_main_respects_roles_override_argument(tmp_path, monkeypatch):
+    # Using --roles should work even without a selected-roles file existing at all —
+    # --roles takes precedence and load_selected_roles is never called.
+    scan = _load_scan_module()
+
+    def fake_fetch_for_company(company):
+        if company.name == "GitLab":
+            return [
+                JobPosting(
+                    company="GitLab",
+                    title="Senior Frontend Developer",
+                    location="Remote - APAC",
+                    url="https://x.example.com/1",
+                    source="greenhouse",
+                    description_text="",
+                )
+            ]
+        raise AssertionError(f"unexpected fetch attempt for {company.name}")
+
+    monkeypatch.setattr(scan, "fetch_for_company", fake_fetch_for_company)
+
+    output_dir = tmp_path / "reports"
+    readme_path = tmp_path / "nonexistent-readme.md"
+    nonexistent_selected_roles = tmp_path / "nonexistent-selected-roles.yaml"
+
+    exit_code = scan.main(
+        [
+            "--companies-file", str(FIXTURES / "companies_sample.yaml"),
+            "--roles-file", str(FIXTURES / "roles_sample.yaml"),
+            "--selected-roles-file", str(nonexistent_selected_roles),
+            "--roles", "frontend",
+            "--output-dir", str(output_dir),
+            "--readme", str(readme_path),
+            "--region", "APAC",
+        ]
+    )
+
+    assert exit_code == 0
+    report_files = list(output_dir.glob("*.md"))
+    assert len(report_files) == 1
+    report_text = report_files[0].read_text(encoding="utf-8")
+    assert "## Frontend Engineer" in report_text
+    assert "Senior Frontend Developer" in report_text
+    # Only the frontend category was selected via --roles, backend should not appear.
+    assert "## Backend Engineer" not in report_text
