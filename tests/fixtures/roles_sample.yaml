@@ -1,0 +1,9 @@
+frontend:
+  label: "Frontend Engineer"
+  keywords: ["frontend", "front-end"]
+  boundary_keywords: ["react"]
+
+backend:
+  label: "Backend Engineer"
+  keywords: ["backend", "back-end"]
+  boundary_keywords: ["api"]
