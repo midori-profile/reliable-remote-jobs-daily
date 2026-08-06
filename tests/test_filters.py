@@ -38,6 +38,18 @@ def test_rejects_sre_posting_with_ts_substring_false_positives():
     assert not is_typescript_relevant(make_job("Site Reliability Engineer", description))
 
 
+def test_rejects_reactive_as_false_positive_for_react_keyword():
+    description = (
+        "You will need to balance the reactive work of responding to interested "
+        "users with proactive outreach and pipeline management."
+    )
+    assert not is_typescript_relevant(make_job("Federal Sales Development Representative", description))
+
+
+def test_matches_react_framework_as_standalone_word():
+    assert is_typescript_relevant(make_job("Software Engineer", "We build our UI in React."))
+
+
 def test_filter_jobs_combines_keyword_and_region():
     jobs = [
         make_job("TypeScript Engineer"),          # relevant, APAC location string but region comes from Company

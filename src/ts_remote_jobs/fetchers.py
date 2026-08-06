@@ -1,3 +1,4 @@
+import html as html_module
 from dataclasses import dataclass
 from urllib.parse import urljoin
 
@@ -25,7 +26,15 @@ class JobPosting:
 
 
 def _strip_html(html: str) -> str:
-    return BeautifulSoup(html or "", "html.parser").get_text(" ", strip=True)
+    # Greenhouse (and possibly others) can return content that is itself
+    # HTML-entity-escaped (e.g. "&lt;div&gt;...&lt;/div&gt;" instead of real
+    # "<div>...</div>" tags). Unescaping first turns any such escaped markup
+    # back into real tags so BeautifulSoup can actually strip them; for
+    # already-real HTML this is a no-op on the tag characters themselves
+    # (it just also decodes entities like "&amp;" inside the text, which is
+    # desired anyway).
+    unescaped = html_module.unescape(html or "")
+    return BeautifulSoup(unescaped, "html.parser").get_text(" ", strip=True)
 
 
 def _get(client, url: str, source: str, company_name: str):

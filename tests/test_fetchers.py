@@ -7,6 +7,7 @@ from ts_remote_jobs.companies import Company
 from ts_remote_jobs.fetchers import (
     FetchError,
     JobPosting,
+    _strip_html,
     fetch_ashby,
     fetch_for_company,
     fetch_generic,
@@ -19,6 +20,20 @@ from ts_remote_jobs.fetchers import (
 def load_fixture(name):
     with open(f"tests/fixtures/{name}", encoding="utf-8") as f:
         return json.load(f)
+
+
+def test_strip_html_handles_single_encoded_html():
+    assert _strip_html("<p>We use TypeScript and React.</p>") == "We use TypeScript and React."
+
+
+def test_strip_html_handles_double_encoded_html():
+    double_encoded = (
+        "&lt;div&gt;&lt;p&gt;Hello &lt;b&gt;World&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;"
+    )
+    result = _strip_html(double_encoded)
+    assert result == "Hello World"
+    for tag_char in ("<div>", "<p>", "<b>", "</b>", "</p>", "</div>"):
+        assert tag_char not in result
 
 
 def test_fetch_greenhouse_parses_jobs():
