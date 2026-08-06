@@ -36,6 +36,19 @@ def test_strip_html_handles_double_encoded_html():
         assert tag_char not in result
 
 
+def test_strip_html_preserves_typescript_generics_syntax():
+    # A description that legitimately mentions generics like Array<string> or
+    # Promise<T> (itself escaped once, since it's inside HTML text content)
+    # must not be mistaken for double-encoded structural markup and stripped
+    # away — only real escaped tags (div/p/etc.) should trigger unescaping.
+    content = (
+        "&lt;p&gt;Experience with generics like Array&amp;lt;string&amp;gt; "
+        "or Promise&amp;lt;T&amp;gt;.&lt;/p&gt;"
+    )
+    result = _strip_html(content)
+    assert result == "Experience with generics like Array<string> or Promise<T>."
+
+
 def test_fetch_greenhouse_parses_jobs():
     mock_client = Mock()
     mock_client.get.return_value.status_code = 200

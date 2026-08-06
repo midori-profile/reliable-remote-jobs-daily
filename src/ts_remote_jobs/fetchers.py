@@ -1,4 +1,5 @@
 import html as html_module
+import re
 from dataclasses import dataclass
 from urllib.parse import urljoin
 
@@ -9,6 +10,19 @@ from bs4 import BeautifulSoup
 DEFAULT_TIMEOUT = 15
 
 JOB_LINK_KEYWORDS = ("engineer", "developer", "typescript", "frontend", "software")
+
+# Matches an HTML-entity-escaped opening/closing structural tag (e.g.
+# "&lt;div&gt;", "&lt;/p&gt;"). Only unescape-before-strip when this is
+# present, so we don't blindly unescape legitimate escaped text that merely
+# *resembles* a tag — e.g. a job description mentioning TypeScript generics
+# like "Array&lt;string&gt;" or "Promise&lt;T&gt;", which would otherwise be
+# silently swallowed by BeautifulSoup as an unknown structural tag once
+# unescaped.
+_DOUBLE_ENCODED_TAG = re.compile(
+    r"&lt;(?:/)?(?:div|p|span|br|ul|ol|li|strong|em|b|i|u|a|h[1-6]"
+    r"|table|tr|td|th|blockquote|pre|code)\b",
+    re.IGNORECASE,
+)
 
 
 class FetchError(Exception):
@@ -28,13 +42,15 @@ class JobPosting:
 def _strip_html(html: str) -> str:
     # Greenhouse (and possibly others) can return content that is itself
     # HTML-entity-escaped (e.g. "&lt;div&gt;...&lt;/div&gt;" instead of real
-    # "<div>...</div>" tags). Unescaping first turns any such escaped markup
-    # back into real tags so BeautifulSoup can actually strip them; for
-    # already-real HTML this is a no-op on the tag characters themselves
-    # (it just also decodes entities like "&amp;" inside the text, which is
-    # desired anyway).
-    unescaped = html_module.unescape(html or "")
-    return BeautifulSoup(unescaped, "html.parser").get_text(" ", strip=True)
+    # "<div>...</div>" tags). Only unescape first when we detect real
+    # double-encoded structural markup — otherwise unescaping would also
+    # turn legitimate escaped-but-not-HTML text (e.g. TypeScript generics
+    # like "Array&lt;string&gt;") into what looks like a real tag, which
+    # BeautifulSoup would then silently strip as unknown markup.
+    html = html or ""
+    if _DOUBLE_ENCODED_TAG.search(html):
+        html = html_module.unescape(html)
+    return BeautifulSoup(html, "html.parser").get_text(" ", strip=True)
 
 
 def _get(client, url: str, source: str, company_name: str):
