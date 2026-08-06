@@ -5,8 +5,8 @@ frontend:
 
 backend:
   label: "Backend Engineer"
-  keywords: ["backend", "back-end", "back end", "server-side", "microservice", "microservices"]
-  boundary_keywords: ["api", "go", "rust", "java"]
+  keywords: ["backend", "back-end", "back end", "server-side", "microservice", "microservices", "golang", "go developer", "go engineer", "python", "node.js", "nodejs"]
+  boundary_keywords: ["api", "rust", "java"]
 
 fullstack:
   label: "Full Stack Engineer"
@@ -28,14 +28,14 @@ mobile:
 
 devops_sre:
   label: "DevOps / SRE"
-  keywords: ["devops", "site reliability", "kubernetes", "terraform", "infrastructure engineer"]
-  boundary_keywords: ["sre", "ci/cd"]
+  keywords: ["devops", "site reliability", "kubernetes", "terraform", "infrastructure engineer", "docker", "cloud engineer"]
+  boundary_keywords: ["sre", "ci/cd", "aws"]
 
 data_engineer:
   label: "Data Engineer"
-  keywords: ["data engineer", "data pipeline", "data warehouse", "spark", "airflow"]
-  boundary_keywords: ["etl"]
+  keywords: ["data engineer", "data pipeline", "data warehouse", "apache spark", "airflow"]
+  boundary_keywords: ["etl", "sql"]
 
 security_engineer:
   label: "Security Engineer"
-  keywords: ["security engineer", "cybersecurity", "application security", "penetration test", "vulnerability"]
+  keywords: ["security engineer", "cybersecurity", "application security", "penetration test", "vulnerability", "infosec"]
