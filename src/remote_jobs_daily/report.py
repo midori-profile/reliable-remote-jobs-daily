@@ -9,14 +9,32 @@ def _escape_cell(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip().replace("|", "\\|")
 
 
-def render_report(jobs: list[JobPosting], unparsed_companies: list[str], run_date: date) -> str:
-    lines = [f"# TypeScript Remote Jobs — {run_date.isoformat()}", ""]
+def render_report(
+    categorized: list[tuple[str, list[JobPosting]]],
+    unparsed_companies: list[str],
+    run_date: date,
+) -> str:
+    lines = [f"# Reliable Remote Jobs Daily — {run_date.isoformat()}", ""]
 
-    if not jobs:
+    total_jobs = sum(len(jobs) for _, jobs in categorized)
+    all_companies = {job.company for _, jobs in categorized for job in jobs}
+
+    if total_jobs == 0:
         lines.append("No matching roles found today.")
     else:
-        lines.append(f"Found **{len(jobs)}** matching role(s) across {len({j.company for j in jobs})} companies.")
+        category_word = "category" if len(categorized) == 1 else "categories"
+        lines.append(
+            f"Found **{total_jobs}** matching role(s) across {len(categorized)} "
+            f"{category_word} and {len(all_companies)} companies."
+        )
+
+    for label, jobs in categorized:
         lines.append("")
+        lines.append(f"## {label}")
+        lines.append("")
+        if not jobs:
+            lines.append("No matching roles in this category today.")
+            continue
         lines.append("| Company | Title | Location | Link |")
         lines.append("|---|---|---|---|")
         for job in jobs:
