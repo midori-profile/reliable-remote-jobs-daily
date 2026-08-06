@@ -44,7 +44,7 @@ def render_report(
             lines.append(f"| {company} | {title} | {location} | [Apply]({job.url}) |")
 
     lines.append("")
-    lines.append("## 未能解析")
+    lines.append("## Unparsed Companies")
     if unparsed_companies:
         lines.append("")
         for name in unparsed_companies:

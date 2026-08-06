@@ -18,7 +18,7 @@ def test_render_report_groups_by_category_and_lists_unparsed():
     assert "[Apply](https://x.example.com/1)" in md
     assert "## Backend Engineer" in md
     assert "No matching roles in this category today." in md
-    assert "## 未能解析" in md
+    assert "## Unparsed Companies" in md
     assert "Acme Custom Corp" in md
 
 

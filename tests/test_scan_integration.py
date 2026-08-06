@@ -47,5 +47,5 @@ def test_full_pipeline_with_categories_and_region_exclusion():
 
     assert "Frontend Engineer" in report
     assert "## Backend Engineer" in report
-    # Acme is US-only, excluded by region before ever being fetched — not "未能解析"
+    # Acme is US-only, excluded by region before ever being fetched — not "Unparsed Companies"
     assert "Acme Custom Corp" not in report
