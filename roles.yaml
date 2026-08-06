@@ -1,0 +1,41 @@
+frontend:
+  label: "Frontend Engineer"
+  keywords: ["frontend", "front-end", "front end", "javascript", "typescript"]
+  boundary_keywords: ["react", "vue", "angular", "css"]
+
+backend:
+  label: "Backend Engineer"
+  keywords: ["backend", "back-end", "back end", "server-side", "microservice", "microservices"]
+  boundary_keywords: ["api", "go", "rust", "java"]
+
+fullstack:
+  label: "Full Stack Engineer"
+  keywords: ["full stack", "full-stack", "fullstack"]
+
+ai_agent_engineer:
+  label: "AI Agent Engineer"
+  keywords: ["ai agent", "agentic", "llm agent", "autonomous agent", "multi-agent"]
+
+ai_infra_engineer:
+  label: "AI Infra Engineer"
+  keywords: ["ai infrastructure", "ml infrastructure", "ml platform", "ai platform", "model serving", "gpu cluster"]
+  boundary_keywords: ["llm", "mlops"]
+
+mobile:
+  label: "Mobile Engineer"
+  keywords: ["mobile engineer", "mobile developer", "react native", "swift", "kotlin", "flutter"]
+  boundary_keywords: ["ios", "android"]
+
+devops_sre:
+  label: "DevOps / SRE"
+  keywords: ["devops", "site reliability", "kubernetes", "terraform", "infrastructure engineer"]
+  boundary_keywords: ["sre", "ci/cd"]
+
+data_engineer:
+  label: "Data Engineer"
+  keywords: ["data engineer", "data pipeline", "data warehouse", "spark", "airflow"]
+  boundary_keywords: ["etl"]
+
+security_engineer:
+  label: "Security Engineer"
+  keywords: ["security engineer", "cybersecurity", "application security", "penetration test", "vulnerability"]
