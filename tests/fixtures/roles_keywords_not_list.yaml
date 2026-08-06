@@ -1,0 +1,4 @@
+frontend:
+  label: "Frontend Engineer"
+  keywords: "not-a-list"
+  boundary_keywords: ["react"]

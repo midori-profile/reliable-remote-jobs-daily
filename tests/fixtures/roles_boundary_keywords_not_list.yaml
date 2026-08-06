@@ -1,0 +1,4 @@
+frontend:
+  label: "Frontend Engineer"
+  keywords: ["frontend"]
+  boundary_keywords: "also-not-a-list"
