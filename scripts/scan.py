@@ -40,7 +40,10 @@ def main(argv=None):
         return 1
 
     if args.roles:
-        selected = [key.strip() for key in args.roles.split(",") if key.strip()]
+        selected = list(dict.fromkeys(key.strip() for key in args.roles.split(",") if key.strip()))
+        if not selected:
+            print("error: --roles produced no valid role keys", file=sys.stderr)
+            return 1
         unknown = [key for key in selected if key not in roles]
         if unknown:
             print(f"error: unknown role key(s) in --roles: {', '.join(unknown)}", file=sys.stderr)
