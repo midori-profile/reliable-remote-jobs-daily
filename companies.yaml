@@ -207,3 +207,341 @@
   ats: other
   careers_url: https://www.discourse.org/team
   hires_from: [Global]
+
+# --- Batch 6 
+- name: Tomofun (Furbo)
+  ats: greenhouse
+  token: tomofunfurbo
+  careers_url: https://job-boards.greenhouse.io/tomofunfurbo
+  hires_from: [Global]
+
+- name: Scopely
+  ats: greenhouse
+  token: scopely
+  careers_url: https://www.scopely.com/careers/
+  hires_from: [Global]
+
+- name: Unknown Worlds
+  ats: greenhouse
+  token: unknownworlds
+  careers_url: https://unknownworlds.com/careers/
+  hires_from: [Global]
+
+- name: Sleek
+  ats: workable
+  token: careers-at-sleek
+  careers_url: https://sleek.com/careers
+  hires_from: [Global]
+
+- name: MailerLite
+  ats: other
+  careers_url: https://www.mailerlite.com/jobs
+  hires_from: [Global]
+
+- name: Mapbox
+  ats: ashby
+  token: mapbox
+  careers_url: https://www.mapbox.com/careers
+  hires_from: [Global]
+
+- name: ElevenLabs
+  ats: ashby
+  token: elevenlabs
+  careers_url: https://elevenlabs.io/careers
+  hires_from: [Global]
+
+- name: StackBlitz
+  ats: greenhouse
+  token: stackblitz
+  careers_url: https://stackblitz.com/careers
+  hires_from: [Global]
+
+- name: ClickHouse
+  ats: greenhouse
+  token: clickhouse
+  careers_url: https://clickhouse.com/company/careers
+  hires_from: [Global]
+
+- name: Duolingo
+  ats: greenhouse
+  token: duolingo
+  careers_url: https://careers.duolingo.com/
+  hires_from: [Global]
+
+- name: Hightouch
+  ats: greenhouse
+  token: hightouch
+  careers_url: https://hightouch.com/careers
+  hires_from: [Global]
+
+- name: RevenueCat
+  ats: ashby
+  token: revenuecat
+  careers_url: https://www.revenuecat.com/careers/
+  hires_from: [Global]
+
+- name: Airbnb
+  ats: greenhouse
+  token: airbnb
+  careers_url: https://careers.airbnb.com/
+  hires_from: [Global]
+
+- name: Goodnotes
+  ats: greenhouse
+  token: goodnotes
+  careers_url: https://www.goodnotes.com/careers
+  hires_from: [Global]
+
+- name: PPRO
+  ats: lever
+  token: ppro
+  careers_url: https://www.ppro.com/careers/
+  hires_from: [Global]
+
+- name: Sporty Group
+  ats: greenhouse
+  token: sportygroup
+  careers_url: https://sportygroup.com/careers/
+  hires_from: [Global]
+
+- name: Airwallex
+  ats: ashby
+  token: airwallex
+  careers_url: https://www.airwallex.com/careers
+  hires_from: [Global]
+
+- name: Canary Technologies
+  ats: lever
+  token: canarytechnologies
+  careers_url: https://canarytechnologies.com/careers
+  hires_from: [Global]
+
+- name: Mistplay
+  ats: lever
+  token: mistplay
+  careers_url: https://www.mistplay.com/careers
+  hires_from: [Global]
+
+- name: Moon Active
+  ats: ashby
+  token: moonactive
+  careers_url: https://www.moonactive.com/careers/
+  hires_from: [Global]
+
+- name: Liftoff
+  ats: greenhouse
+  token: liftoff
+  careers_url: https://liftoff.io/careers/
+  hires_from: [Global]
+
+- name: Singular
+  ats: ashby
+  token: singular
+  careers_url: https://www.singular.net/careers/
+  hires_from: [Global]
+
+- name: Jampp
+  ats: greenhouse
+  token: jampp
+  careers_url: https://www.jampp.com/careers/
+  hires_from: [Global]
+
+- name: Yuno
+  ats: lever
+  token: yuno
+  careers_url: https://www.yuno.com/careers
+  hires_from: [Global]
+
+- name: Levanta
+  ats: greenhouse
+  token: levanta
+  careers_url: https://www.levanta.io/careers
+  hires_from: [Global]
+
+- name: Quince
+  ats: greenhouse
+  token: quince
+  careers_url: https://www.quince.com/careers
+  hires_from: [Global]
+
+- name: Fuse Energy
+  ats: workable
+  token: fuseenergy
+  careers_url: https://apply.workable.com/fuseenergy/
+  hires_from: [Global]
+
+# --- Batch 7 (user-requested additions, verified against ATS APIs) ---
+- name: Speechify
+  ats: greenhouse
+  token: speechify
+  careers_url: https://speechify.com/careers/
+  hires_from: [Global]
+
+- name: Binance
+  ats: lever
+  token: binance
+  careers_url: https://www.binance.com/en/careers
+  hires_from: [Global]
+
+- name: Invisible Technologies
+  ats: greenhouse
+  token: invisibletech
+  careers_url: https://invisible.co/careers
+  hires_from: [Global]
+
+- name: Whatnot
+  ats: other
+  careers_url: https://jobs.ashbyhq.com/whatnot
+  hires_from: [Global]
+
+# --- Batch 8 (more rednote-sourced companies, verified against ATS APIs) ---
+- name: ShareGate
+  ats: greenhouse
+  token: sharegate
+  careers_url: https://www.sharegate.com/careers
+  hires_from: [Global]
+
+- name: Scoreplay
+  ats: ashby
+  token: scoreplay
+  careers_url: https://www.scoreplay.io/careers
+  hires_from: [Global]
+
+- name: Remote People
+  ats: greenhouse
+  token: remotepeople
+  careers_url: https://www.remotepeople.com/careers
+  hires_from: [Global]
+
+- name: Teleport
+  ats: ashby
+  token: goteleport
+  careers_url: https://goteleport.com/careers/
+  hires_from: [Global]
+
+- name: Sourceability
+  ats: greenhouse
+  token: sourceability
+  careers_url: https://sourceability.com/careers/
+  hires_from: [Global]
+
+- name: Hospitable
+  ats: workable
+  token: hospitable
+  careers_url: https://www.hospitable.com/careers
+  hires_from: [Global]
+
+- name: Nuvei
+  ats: workable
+  token: nuvei
+  careers_url: https://www.nuvei.com/careers
+  hires_from: [Global]
+
+- name: Who Gives A Crap
+  ats: greenhouse
+  token: whogivesacrap
+  careers_url: https://who.gives.a.crap.co/careers
+  hires_from: [Global]
+
+# --- Batch 9 (verified real companies with an active job board, even if 0 openings right now — job counts fluctuate) ---
+- name: SupportYourApp
+  ats: workable
+  token: supportyourapp
+  careers_url: https://apply.workable.com/supportyourapp/
+  hires_from: [Global]
+
+- name: Jibble
+  ats: workable
+  token: jibble
+  careers_url: https://apply.workable.com/jibble/
+  hires_from: [Global]
+
+- name: Crimson Education
+  ats: workable
+  token: crimsoneducation
+  careers_url: https://apply.workable.com/crimsoneducation/
+  hires_from: [Global]
+
+- name: Castlabs
+  ats: workable
+  token: castlabs
+  careers_url: https://apply.workable.com/castlabs/
+  hires_from: [Global]
+
+- name: Layer
+  ats: workable
+  token: layer
+  careers_url: https://apply.workable.com/layer/
+  hires_from: [Global]
+
+- name: BJAK
+  ats: workable
+  token: bjak
+  careers_url: https://apply.workable.com/bjak/
+  hires_from: [Global]
+
+- name: WorkFlex
+  ats: workable
+  token: workflex
+  careers_url: https://apply.workable.com/workflex/
+  hires_from: [Global]
+
+- name: Qumin
+  ats: workable
+  token: qumin
+  careers_url: https://apply.workable.com/qumin/
+  hires_from: [Global]
+
+- name: Translated
+  ats: workable
+  token: translated
+  careers_url: https://apply.workable.com/translated/
+  hires_from: [Global]
+
+- name: RateHawk
+  ats: workable
+  token: ratehawk
+  careers_url: https://apply.workable.com/ratehawk/
+  hires_from: [Global]
+
+- name: Leadtech
+  ats: workable
+  token: leadtech
+  careers_url: https://apply.workable.com/leadtech/
+  hires_from: [Global]
+
+- name: Passion.io
+  ats: workable
+  token: passionio
+  careers_url: https://apply.workable.com/passionio/
+  hires_from: [Global]
+
+- name: Clipboard Health
+  ats: workable
+  token: clipboardhealth
+  careers_url: https://apply.workable.com/clipboardhealth/
+  hires_from: [Global]
+
+- name: Trafilea
+  ats: workable
+  token: trafilea
+  careers_url: https://apply.workable.com/trafilea/
+  hires_from: [Global]
+
+- name: CP Axtra
+  ats: workable
+  token: cpaxtra
+  careers_url: https://apply.workable.com/cpaxtra/
+  hires_from: [Global]
+
+- name: Kraken
+  ats: workable
+  token: kraken
+  careers_url: https://apply.workable.com/kraken/
+  hires_from: [Global]
+
+- name: Shopify
+  ats: workable
+  token: shopify
+  careers_url: https://apply.workable.com/shopify/
+  hires_from: [Global]

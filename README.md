@@ -3,8 +3,8 @@
 A daily-refreshed list of remote-friendly companies, scanned directly against their hiring systems for engineering roles across Frontend, Backend, Fullstack, AI Agent Engineer, AI Infra Engineer, Mobile, DevOps/SRE, Data Engineer, and Security Engineer — no stale job-board aggregators involved.
 
 <!-- LATEST-SCAN:START -->
-**2026-08-06** — Found 285 matching role(s).
-Full report: [reports/2026-08-06.md](reports/2026-08-06.md)
+**2026-08-07** — Found 1885 matching role(s).
+Full report: [reports/2026-08-07.md](reports/2026-08-07.md)
 <!-- LATEST-SCAN:END -->
 
 
