@@ -1,4 +1,4 @@
-# Remote-friendly, dev-recognizable tech companies with TypeScript-relevant job boards.
+# Remote-friendly
 # Each entry verified against its ATS API (or, failing that, its real careers page)
 # before being added here. See task notes for verification methodology.
 
@@ -540,8 +540,1700 @@
   careers_url: https://apply.workable.com/kraken/
   hires_from: [Global]
 
-- name: Shopify
-  ats: workable
-  token: shopify
-  careers_url: https://apply.workable.com/shopify/
+
+# --- Batch 10 (well-known 100%-remote-first companies, sourced from We Work Remotely + general research) ---
+- name: PostHog
+  ats: ashby
+  token: posthog
+  careers_url: https://posthog.com/careers
   hires_from: [Global]
+
+- name: HashiCorp
+  ats: workable
+  token: hashicorp
+  careers_url: https://apply.workable.com/hashicorp/
+  hires_from: [Global]
+
+- name: X-Team
+  ats: workable
+  token: xteam
+  careers_url: https://apply.workable.com/xteam/
+  hires_from: [Global]
+
+- name: 10up
+  ats: workable
+  token: 10up
+  careers_url: https://apply.workable.com/10up/
+  hires_from: [Global]
+
+- name: InVision
+  ats: workable
+  token: invisionapp
+  careers_url: https://apply.workable.com/invisionapp/
+  hires_from: [Global]
+
+- name: Baremetrics
+  ats: workable
+  token: baremetrics
+  careers_url: https://apply.workable.com/baremetrics/
+  hires_from: [Global]
+
+- name: Articulate
+  ats: lever
+  token: articulate
+  careers_url: https://www.articulate.com/careers/
+  hires_from: [Global]
+
+- name: Groove
+  ats: workable
+  token: groovehq
+  careers_url: https://apply.workable.com/groovehq/
+  hires_from: [Global]
+
+- name: Hotjar
+  ats: workable
+  token: hotjar
+  careers_url: https://apply.workable.com/hotjar/
+  hires_from: [Global]
+
+- name: Sourcegraph
+  ats: other
+  careers_url: https://sourcegraph.com/jobs
+  hires_from: [Global]
+
+- name: Descript
+  ats: greenhouse
+  token: descript
+  careers_url: https://www.descript.com/careers
+  hires_from: [Global]
+
+# --- Batch 11 (verified 2026-08-07: each token confirmed against its ATS API,
+#     and each board's own payload checked to confirm it belongs to the named company.
+#     Companies under ~50 employees were deliberately excluded.) ---
+
+# Batch 11a — large-cap / well-known platforms with distributed hiring
+- name: Stripe
+  ats: greenhouse
+  token: stripe
+  careers_url: https://stripe.com/jobs
+  hires_from: [Global]
+
+- name: Cloudflare
+  ats: greenhouse
+  token: cloudflare
+  careers_url: https://www.cloudflare.com/careers/
+  hires_from: [Global]
+
+- name: Datadog
+  ats: greenhouse
+  token: datadog
+  careers_url: https://careers.datadoghq.com/
+  hires_from: [Global]
+
+- name: MongoDB
+  ats: greenhouse
+  token: mongodb
+  careers_url: https://www.mongodb.com/careers
+  hires_from: [Global]
+
+- name: Twilio
+  ats: greenhouse
+  token: twilio
+  careers_url: https://www.twilio.com/en-us/company/jobs
+  hires_from: [Global]
+
+- name: Okta
+  ats: greenhouse
+  token: okta
+  careers_url: https://www.okta.com/company/careers/
+  hires_from: [Global]
+
+- name: Snowflake
+  ats: ashby
+  token: snowflake
+  careers_url: https://careers.snowflake.com/
+  hires_from: [Global]
+
+- name: Databricks
+  ats: greenhouse
+  token: databricks
+  careers_url: https://www.databricks.com/company/careers
+  hires_from: [Global]
+
+- name: Confluent
+  ats: ashby
+  token: confluent
+  careers_url: https://www.confluent.io/careers/
+  hires_from: [Global]
+
+- name: Fivetran
+  ats: greenhouse
+  token: fivetran
+  careers_url: https://www.fivetran.com/careers
+  hires_from: [Global]
+
+- name: Figma
+  ats: greenhouse
+  token: figma
+  careers_url: https://www.figma.com/careers/
+  hires_from: [Global]
+
+- name: Notion
+  ats: ashby
+  token: notion
+  careers_url: https://www.notion.com/careers
+  hires_from: [Global]
+
+- name: Asana
+  ats: greenhouse
+  token: asana
+  careers_url: https://asana.com/jobs
+  hires_from: [Global]
+
+- name: Airtable
+  ats: greenhouse
+  token: airtable
+  careers_url: https://www.airtable.com/careers
+  hires_from: [US, EU, UK]
+
+- name: Dropbox
+  ats: greenhouse
+  token: dropbox
+  careers_url: https://www.dropbox.com/jobs
+  hires_from: [Global]
+
+- name: Reddit
+  ats: greenhouse
+  token: reddit
+  careers_url: https://redditinc.com/careers
+  hires_from: [Global]
+
+- name: Pinterest
+  ats: greenhouse
+  token: pinterest
+  careers_url: https://www.pinterestcareers.com/
+  hires_from: [Global]
+
+- name: Spotify
+  ats: lever
+  token: spotify
+  careers_url: https://www.lifeatspotify.com/jobs
+  hires_from: [Global]
+
+- name: Squarespace
+  ats: greenhouse
+  token: squarespace
+  careers_url: https://www.squarespace.com/about/careers
+  hires_from: [US, EU, UK]
+
+- name: Instacart
+  ats: greenhouse
+  token: instacart
+  careers_url: https://instacart.careers/
+  hires_from: [US]
+
+- name: Discord
+  ats: greenhouse
+  token: discord
+  careers_url: https://discord.com/careers
+  hires_from: [US]
+
+- name: Twitch
+  ats: greenhouse
+  token: twitch
+  careers_url: https://www.twitch.tv/jobs/
+  hires_from: [US, EU]
+
+- name: Roblox
+  ats: greenhouse
+  token: roblox
+  careers_url: https://careers.roblox.com/
+  hires_from: [US, EU, APAC]
+
+- name: Epic Games
+  ats: greenhouse
+  token: epicgames
+  careers_url: https://www.epicgames.com/site/en-US/careers
+  hires_from: [Global]
+
+- name: Riot Games
+  ats: greenhouse
+  token: riotgames
+  careers_url: https://www.riotgames.com/en/work-with-us
+  hires_from: [Global]
+
+- name: AppLovin
+  ats: greenhouse
+  token: applovin
+  careers_url: https://www.applovin.com/careers/
+  hires_from: [Global]
+
+- name: Celonis
+  ats: greenhouse
+  token: celonis
+  careers_url: https://www.celonis.com/careers/jobs/
+  hires_from: [Global]
+
+- name: Kaseya
+  ats: greenhouse
+  token: kaseya
+  careers_url: https://www.kaseya.com/careers/
+  hires_from: [Global]
+
+- name: HelloFresh
+  ats: greenhouse
+  token: hellofresh
+  careers_url: https://careers.hellofresh.com/
+  hires_from: [Global]
+
+- name: Xero
+  ats: ashby
+  token: xero
+  careers_url: https://www.xero.com/about/careers/
+  hires_from: [APAC, US, UK]
+
+# Batch 11b — developer tooling & infrastructure (heavily remote-first)
+- name: Grafana Labs
+  ats: greenhouse
+  token: grafanalabs
+  careers_url: https://grafana.com/about/careers/
+  hires_from: [Global]
+
+- name: Docker
+  ats: ashby
+  token: docker
+  careers_url: https://www.docker.com/career-openings/
+  hires_from: [Global]
+
+- name: Sentry
+  ats: ashby
+  token: sentry
+  careers_url: https://sentry.io/careers/
+  hires_from: [Global]
+
+- name: CircleCI
+  ats: greenhouse
+  token: circleci
+  careers_url: https://circleci.com/careers/
+  hires_from: [Global]
+
+- name: Postman
+  ats: greenhouse
+  token: postman
+  careers_url: https://www.postman.com/company/careers/
+  hires_from: [Global]
+
+- name: JetBrains
+  ats: greenhouse
+  token: jetbrains
+  careers_url: https://www.jetbrains.com/careers/jobs/
+  hires_from: [Global]
+
+- name: Sonar
+  ats: lever
+  token: sonarsource
+  careers_url: https://www.sonarsource.com/company/careers/
+  hires_from: [EU, US]
+
+- name: Kong
+  ats: ashby
+  token: kong
+  careers_url: https://konghq.com/careers
+  hires_from: [Global]
+
+- name: Redis
+  ats: ashby
+  token: redis
+  careers_url: https://redis.io/careers/
+  hires_from: [Global]
+
+- name: Neo4j
+  ats: greenhouse
+  token: neo4j
+  careers_url: https://neo4j.com/careers/
+  hires_from: [Global]
+
+- name: Cockroach Labs
+  ats: greenhouse
+  token: cockroachlabs
+  careers_url: https://www.cockroachlabs.com/careers/
+  hires_from: [US, EU, UK]
+
+- name: InfluxData
+  ats: ashby
+  token: influxdata
+  careers_url: https://www.influxdata.com/careers/
+  hires_from: [Global]
+
+- name: Percona
+  ats: ashby
+  token: percona
+  careers_url: https://www.percona.com/about/careers
+  hires_from: [Global]
+
+- name: Temporal
+  ats: ashby
+  token: temporal
+  careers_url: https://temporal.io/careers
+  hires_from: [US, EU]
+
+- name: Chainguard
+  ats: greenhouse
+  token: chainguard
+  careers_url: https://www.chainguard.dev/careers
+  hires_from: [US, EU]
+
+- name: Tailscale
+  ats: greenhouse
+  token: tailscale
+  careers_url: https://tailscale.com/careers
+  hires_from: [US, EU]
+
+- name: Honeycomb
+  ats: greenhouse
+  token: honeycomb
+  careers_url: https://www.honeycomb.io/careers
+  hires_from: [US, EU, UK]
+
+- name: LaunchDarkly
+  ats: greenhouse
+  token: launchdarkly
+  careers_url: https://launchdarkly.com/careers/
+  hires_from: [US, EU, UK]
+
+- name: Chronosphere
+  ats: ashby
+  token: chronospherejobs
+  careers_url: https://chronosphere.io/careers/
+  hires_from: [US, EU]
+
+- name: Algolia
+  ats: greenhouse
+  token: algolia
+  careers_url: https://www.algolia.com/careers
+  hires_from: [Global]
+
+- name: Cloudinary
+  ats: lever
+  token: cloudinary
+  careers_url: https://cloudinary.com/careers
+  hires_from: [Global]
+
+- name: Vanta
+  ats: ashby
+  token: vanta
+  careers_url: https://www.vanta.com/careers
+  hires_from: [US, EU, UK]
+
+- name: WorkOS
+  ats: ashby
+  token: workos
+  careers_url: https://workos.com/careers
+  hires_from: [US]
+
+- name: Stytch
+  ats: ashby
+  token: stytch
+  careers_url: https://stytch.com/careers
+  hires_from: [US]
+
+- name: Replit
+  ats: ashby
+  token: replit
+  careers_url: https://replit.com/careers
+  hires_from: [US]
+
+- name: Octopus Deploy
+  ats: greenhouse
+  token: octopusdeploy
+  careers_url: https://octopus.com/company/careers
+  hires_from: [Global]
+
+- name: Bitwarden
+  ats: greenhouse
+  token: bitwarden
+  careers_url: https://bitwarden.com/careers/
+  hires_from: [Global]
+
+- name: Proton
+  ats: greenhouse
+  token: proton
+  careers_url: https://proton.me/careers
+  hires_from: [EU]
+
+- name: Dashlane
+  ats: greenhouse
+  token: dashlane
+  careers_url: https://www.dashlane.com/careers
+  hires_from: [US, EU]
+
+# Batch 11c — AI / ML labs and infrastructure
+- name: OpenAI
+  ats: ashby
+  token: openai
+  careers_url: https://openai.com/careers/
+  hires_from: [Global]
+
+- name: Anthropic
+  ats: greenhouse
+  token: anthropic
+  careers_url: https://www.anthropic.com/careers
+  hires_from: [US, EU, UK]
+
+- name: Cohere
+  ats: ashby
+  token: cohere
+  careers_url: https://cohere.com/careers
+  hires_from: [Global]
+
+- name: Scale AI
+  ats: greenhouse
+  token: scaleai
+  careers_url: https://scale.com/careers
+  hires_from: [US, EU]
+
+- name: Together AI
+  ats: greenhouse
+  token: togetherai
+  careers_url: https://www.together.ai/careers
+  hires_from: [US, EU, APAC]
+
+- name: Cerebras
+  ats: ashby
+  token: cerebras
+  careers_url: https://cerebras.ai/careers
+  hires_from: [US, EU, APAC]
+
+- name: CoreWeave
+  ats: greenhouse
+  token: coreweave
+  careers_url: https://coreweave.com/careers
+  hires_from: [US, EU, UK]
+
+- name: Lambda
+  ats: ashby
+  token: lambda
+  careers_url: https://lambda.ai/careers
+  hires_from: [US]
+
+- name: Baseten
+  ats: ashby
+  token: baseten
+  careers_url: https://www.baseten.co/careers/
+  hires_from: [US, EU]
+
+- name: Fireworks AI
+  ats: ashby
+  token: fireworks
+  careers_url: https://fireworks.ai/careers
+  hires_from: [US]
+
+- name: Deepgram
+  ats: ashby
+  token: deepgram
+  careers_url: https://deepgram.com/careers
+  hires_from: [US]
+
+- name: AssemblyAI
+  ats: greenhouse
+  token: assemblyai
+  careers_url: https://www.assemblyai.com/careers
+  hires_from: [Global]
+
+- name: Pinecone
+  ats: ashby
+  token: pinecone
+  careers_url: https://www.pinecone.io/careers/
+  hires_from: [US, EU]
+
+- name: Weaviate
+  ats: ashby
+  token: weaviate
+  careers_url: https://weaviate.io/company/careers
+  hires_from: [EU, US]
+
+# Batch 11d — fintech / payments
+- name: Adyen
+  ats: greenhouse
+  token: adyen
+  careers_url: https://careers.adyen.com/
+  hires_from: [Global]
+
+- name: Coinbase
+  ats: greenhouse
+  token: coinbase
+  careers_url: https://www.coinbase.com/careers
+  hires_from: [Global]
+
+- name: Affirm
+  ats: greenhouse
+  token: affirm
+  careers_url: https://www.affirm.com/careers
+  hires_from: [US, EU]
+
+- name: Brex
+  ats: greenhouse
+  token: brex
+  careers_url: https://www.brex.com/careers
+  hires_from: [US, EU, LATAM]
+
+- name: Ramp
+  ats: ashby
+  token: ramp
+  careers_url: https://ramp.com/careers
+  hires_from: [US, EU]
+
+- name: Mercury
+  ats: greenhouse
+  token: mercury
+  careers_url: https://mercury.com/jobs
+  hires_from: [US, EU]
+
+- name: Plaid
+  ats: ashby
+  token: plaid
+  careers_url: https://plaid.com/careers/
+  hires_from: [US, EU, UK]
+
+- name: Chime
+  ats: greenhouse
+  token: chime
+  careers_url: https://careers.chime.com/
+  hires_from: [US]
+
+- name: Gusto
+  ats: greenhouse
+  token: gusto
+  careers_url: https://gusto.com/about/careers
+  hires_from: [US]
+
+- name: Robinhood
+  ats: greenhouse
+  token: robinhood
+  careers_url: https://careers.robinhood.com/
+  hires_from: [US]
+
+- name: Marqeta
+  ats: greenhouse
+  token: marqeta
+  careers_url: https://www.marqeta.com/company/careers
+  hires_from: [US, UK]
+
+- name: Lithic
+  ats: greenhouse
+  token: lithic
+  careers_url: https://www.lithic.com/careers
+  hires_from: [US]
+
+- name: Modern Treasury
+  ats: ashby
+  token: moderntreasury
+  careers_url: https://www.moderntreasury.com/careers
+  hires_from: [US]
+
+- name: Melio
+  ats: greenhouse
+  token: melio
+  careers_url: https://www.melio.com/careers
+  hires_from: [US, EU]
+
+- name: Middesk
+  ats: ashby
+  token: middesk
+  careers_url: https://www.middesk.com/careers
+  hires_from: [US]
+
+- name: Persona
+  ats: ashby
+  token: persona
+  careers_url: https://withpersona.com/careers
+  hires_from: [US, APAC]
+
+- name: Sardine
+  ats: ashby
+  token: sardine
+  careers_url: https://www.sardine.ai/careers
+  hires_from: [Global]
+
+- name: Alloy
+  ats: greenhouse
+  token: alloy
+  careers_url: https://www.alloy.com/careers
+  hires_from: [US]
+
+- name: Navan
+  ats: greenhouse
+  token: tripactions
+  careers_url: https://navan.com/careers
+  hires_from: [Global]
+
+- name: Payoneer
+  ats: greenhouse
+  token: payoneer
+  careers_url: https://careers.payoneer.com/
+  hires_from: [Global]
+
+- name: Nium
+  ats: lever
+  token: nium
+  careers_url: https://www.nium.com/careers
+  hires_from: [Global]
+
+- name: Thunes
+  ats: greenhouse
+  token: thunes
+  careers_url: https://www.thunes.com/careers/
+  hires_from: [Global]
+
+- name: dLocal
+  ats: lever
+  token: dlocal
+  careers_url: https://dlocal.com/careers/
+  hires_from: [Global]
+
+- name: EBANX
+  ats: greenhouse
+  token: ebanx
+  careers_url: https://business.ebanx.com/en/careers
+  hires_from: [LATAM, EU]
+
+- name: Nubank
+  ats: ashby
+  token: nubank
+  careers_url: https://international.nubank.com.br/careers/
+  hires_from: [LATAM]
+
+- name: Bitso
+  ats: greenhouse
+  token: bitso
+  careers_url: https://bitso.com/careers
+  hires_from: [LATAM]
+
+- name: Mollie
+  ats: ashby
+  token: mollie
+  careers_url: https://jobs.mollie.com/
+  hires_from: [EU]
+
+- name: SumUp
+  ats: greenhouse
+  token: sumup
+  careers_url: https://www.sumup.com/careers/
+  hires_from: [Global]
+
+- name: N26
+  ats: greenhouse
+  token: n26
+  careers_url: https://n26.com/en-eu/careers
+  hires_from: [EU]
+
+- name: Solaris
+  ats: greenhouse
+  token: solarisbank
+  careers_url: https://www.solarisgroup.com/en/careers/
+  hires_from: [EU]
+
+- name: Raisin
+  ats: greenhouse
+  token: raisin
+  careers_url: https://www.raisin.com/careers
+  hires_from: [EU]
+
+- name: Ripple
+  ats: greenhouse
+  token: ripple
+  careers_url: https://ripple.com/careers/
+  hires_from: [Global]
+
+- name: Fireblocks
+  ats: greenhouse
+  token: fireblocks
+  careers_url: https://www.fireblocks.com/careers/
+  hires_from: [Global]
+
+- name: Alchemy
+  ats: ashby
+  token: alchemy
+  careers_url: https://www.alchemy.com/careers
+  hires_from: [US]
+
+- name: Ledger
+  ats: ashby
+  token: ledger
+  careers_url: https://www.ledger.com/careers
+  hires_from: [EU]
+
+- name: Consensys
+  ats: greenhouse
+  token: consensys
+  careers_url: https://consensys.io/open-roles
+  hires_from: [Global]
+
+- name: Gemini
+  ats: greenhouse
+  token: gemini
+  careers_url: https://www.gemini.com/careers
+  hires_from: [US]
+
+- name: OKX
+  ats: greenhouse
+  token: okx
+  careers_url: https://www.okx.com/careers
+  hires_from: [Global]
+
+- name: Crypto.com
+  ats: lever
+  token: crypto
+  careers_url: https://crypto.com/careers
+  hires_from: [Global]
+
+- name: Bitpanda
+  ats: greenhouse
+  token: bitpanda
+  careers_url: https://www.bitpanda.com/en/career
+  hires_from: [EU]
+
+- name: MoonPay
+  ats: lever
+  token: moonpay
+  careers_url: https://www.moonpay.com/careers
+  hires_from: [Global]
+
+# Batch 11e — SaaS / product companies
+- name: Intercom
+  ats: greenhouse
+  token: intercom
+  careers_url: https://www.intercom.com/careers
+  hires_from: [Global]
+
+- name: Klaviyo
+  ats: greenhouse
+  token: klaviyo
+  careers_url: https://www.klaviyo.com/careers
+  hires_from: [Global]
+
+- name: Braze
+  ats: greenhouse
+  token: braze
+  careers_url: https://www.braze.com/company/careers
+  hires_from: [Global]
+
+- name: Iterable
+  ats: greenhouse
+  token: iterable
+  careers_url: https://iterable.com/careers/
+  hires_from: [US, EU]
+
+- name: Attentive
+  ats: greenhouse
+  token: attentive
+  careers_url: https://www.attentive.com/careers
+  hires_from: [US]
+
+- name: Amplitude
+  ats: greenhouse
+  token: amplitude
+  careers_url: https://amplitude.com/careers
+  hires_from: [Global]
+
+- name: Mixpanel
+  ats: greenhouse
+  token: mixpanel
+  careers_url: https://mixpanel.com/careers/
+  hires_from: [US, EU, APAC]
+
+- name: Pendo
+  ats: greenhouse
+  token: pendo
+  careers_url: https://www.pendo.io/careers/
+  hires_from: [Global]
+
+- name: Sprout Social
+  ats: greenhouse
+  token: sproutsocial
+  careers_url: https://sproutsocial.com/careers/
+  hires_from: [US, EU]
+
+- name: Later
+  ats: greenhouse
+  token: later
+  careers_url: https://later.com/careers/
+  hires_from: [US]
+
+- name: Hootsuite
+  ats: greenhouse
+  token: hootsuite
+  careers_url: https://careers.hootsuite.com/
+  hires_from: [Global]
+
+- name: Unbounce
+  ats: greenhouse
+  token: unbounce
+  careers_url: https://unbounce.com/careers/
+  hires_from: [US, EU]
+
+- name: Typeform
+  ats: greenhouse
+  token: typeform
+  careers_url: https://www.typeform.com/careers/
+  hires_from: [EU, US]
+
+- name: Miro
+  ats: ashby
+  token: miro
+  careers_url: https://miro.com/careers/
+  hires_from: [Global]
+
+- name: Mural
+  ats: ashby
+  token: mural
+  careers_url: https://www.mural.co/careers
+  hires_from: [US, LATAM]
+
+- name: Webflow
+  ats: greenhouse
+  token: webflow
+  careers_url: https://webflow.com/careers
+  hires_from: [US, EU]
+
+- name: Calendly
+  ats: greenhouse
+  token: calendly
+  careers_url: https://careers.calendly.com/
+  hires_from: [US]
+
+- name: Customer.io
+  ats: greenhouse
+  token: customerio
+  careers_url: https://customer.io/careers/
+  hires_from: [Global]
+
+- name: ActiveCampaign
+  ats: lever
+  token: activecampaign
+  careers_url: https://www.activecampaign.com/careers
+  hires_from: [Global]
+
+- name: Culture Amp
+  ats: greenhouse
+  token: cultureamp
+  careers_url: https://www.cultureamp.com/company/careers
+  hires_from: [Global]
+
+- name: SafetyCulture
+  ats: ashby
+  token: safetyculture
+  careers_url: https://safetyculture.com/careers/
+  hires_from: [APAC, EU, US]
+
+- name: Deputy
+  ats: lever
+  token: deputy
+  careers_url: https://www.deputy.com/careers
+  hires_from: [APAC, US, UK]
+
+- name: Pipedrive
+  ats: lever
+  token: pipedrive
+  careers_url: https://www.pipedrive.com/en/jobs
+  hires_from: [EU, US]
+
+- name: Contentsquare
+  ats: lever
+  token: contentsquare
+  careers_url: https://contentsquare.com/careers/
+  hires_from: [EU, US]
+
+- name: Veriff
+  ats: greenhouse
+  token: veriff
+  careers_url: https://www.veriff.com/careers
+  hires_from: [EU]
+
+- name: Docplanner
+  ats: ashby
+  token: docplanner
+  careers_url: https://www.docplanner.com/careers
+  hires_from: [EU, LATAM]
+
+- name: Otter.ai
+  ats: greenhouse
+  token: otterai
+  careers_url: https://otter.ai/careers
+  hires_from: [US]
+
+- name: Rev
+  ats: ashby
+  token: rev
+  careers_url: https://www.rev.com/careers
+  hires_from: [US]
+
+- name: Whereby
+  ats: lever
+  token: whereby
+  careers_url: https://whereby.com/information/careers/
+  hires_from: [EU, US, UK]
+
+# Batch 11f — marketplaces, education, logistics, services
+- name: Coursera
+  ats: greenhouse
+  token: coursera
+  careers_url: https://careers.coursera.com/
+  hires_from: [Global]
+
+- name: Udemy
+  ats: greenhouse
+  token: udemy
+  careers_url: https://about.udemy.com/careers/
+  hires_from: [Global]
+
+- name: Khan Academy
+  ats: greenhouse
+  token: khanacademy
+  careers_url: https://www.khanacademy.org/careers
+  hires_from: [US]
+
+- name: Preply
+  ats: ashby
+  token: preply
+  careers_url: https://preply.com/en/careers
+  hires_from: [Global]
+
+- name: GoStudent
+  ats: greenhouse
+  token: gostudent
+  careers_url: https://www.gostudent.org/en/jobs
+  hires_from: [EU]
+
+- name: Babbel
+  ats: ashby
+  token: babbel
+  careers_url: https://www.babbel.com/en/jobs
+  hires_from: [EU]
+
+- name: DataCamp
+  ats: greenhouse
+  token: datacamp
+  careers_url: https://www.datacamp.com/careers
+  hires_from: [EU, US]
+
+- name: Faire
+  ats: greenhouse
+  token: faire
+  careers_url: https://www.faire.com/careers
+  hires_from: [US, EU]
+
+- name: Hopper
+  ats: ashby
+  token: hopper
+  careers_url: https://www.hopper.com/careers
+  hires_from: [US]
+
+- name: Lightspeed
+  ats: ashby
+  token: lightspeedhq
+  careers_url: https://www.lightspeedhq.com/careers/
+  hires_from: [Global]
+
+- name: GetYourGuide
+  ats: greenhouse
+  token: getyourguide
+  careers_url: https://careers.getyourguide.com/
+  hires_from: [EU]
+
+- name: Trivago
+  ats: greenhouse
+  token: trivago
+  careers_url: https://careers.trivago.com/
+  hires_from: [EU]
+
+- name: Wolt
+  ats: greenhouse
+  token: wolt
+  careers_url: https://careers.wolt.com/
+  hires_from: [EU]
+
+- name: Flix
+  ats: greenhouse
+  token: flix
+  careers_url: https://flix.careers/
+  hires_from: [EU, US]
+
+- name: Forto
+  ats: ashby
+  token: forto
+  careers_url: https://forto.com/en/careers/
+  hires_from: [EU]
+
+- name: Choco
+  ats: ashby
+  token: choco
+  careers_url: https://choco.com/careers
+  hires_from: [EU, US]
+
+- name: Rohlik Group
+  ats: ashby
+  token: rohlik
+  careers_url: https://www.rohlik.group/careers
+  hires_from: [EU]
+
+- name: Hostinger
+  ats: ashby
+  token: hostinger
+  careers_url: https://www.hostinger.com/careers
+  hires_from: [EU]
+
+- name: Ahrefs
+  ats: greenhouse
+  token: ahrefsjobs
+  careers_url: https://ahrefs.com/jobs
+  hires_from: [APAC, EU]
+
+- name: Halter
+  ats: ashby
+  token: halter
+  careers_url: https://halterhq.com/careers
+  hires_from: [APAC]
+
+- name: Prospa
+  ats: greenhouse
+  token: prospa
+  careers_url: https://www.prospa.com/about-us/careers
+  hires_from: [APAC]
+
+- name: Immutable
+  ats: lever
+  token: immutable
+  careers_url: https://www.immutable.com/careers
+  hires_from: [APAC]
+
+- name: Ninja Van
+  ats: lever
+  token: ninjavan
+  careers_url: https://www.ninjavan.co/en-sg/careers
+  hires_from: [APAC]
+
+- name: Xendit
+  ats: greenhouse
+  token: xendit
+  careers_url: https://www.xendit.co/en/careers/
+  hires_from: [APAC]
+
+- name: Thoughtworks
+  ats: greenhouse
+  token: thoughtworks
+  careers_url: https://www.thoughtworks.com/careers
+  hires_from: [Global]
+
+- name: Modus Create
+  ats: greenhouse
+  token: moduscreate
+  careers_url: https://moduscreate.com/careers/
+  hires_from: [Global]
+
+- name: Wizeline
+  ats: greenhouse
+  token: wizeline
+  careers_url: https://www.wizeline.com/careers/
+  hires_from: [LATAM, US]
+
+- name: Turing
+  ats: greenhouse
+  token: turing
+  careers_url: https://www.turing.com/careers
+  hires_from: [Global]
+
+- name: Sysdig
+  ats: lever
+  token: sysdig
+  careers_url: https://sysdig.com/careers/
+  hires_from: [Global]
+
+- name: Wealthsimple
+  ats: ashby
+  token: wealthsimple
+  careers_url: https://www.wealthsimple.com/careers
+  hires_from: [US]
+
+# --- Batch 12 (sourced 2026-08-08 from the remoteintech/remote-jobs curated directory,
+#     filtered to its medium/large/enterprise size buckets so nothing under ~50 employees
+#     gets in. Each token was read off the company's own careers page (or slug-guessed and
+#     then confirmed against the board's account name / posting apply-domain), never
+#     accepted on an HTTP 200 alone — Workable in particular returns 200 for almost any
+#     token. hires_from is derived from the real posting locations on each live board.) ---
+
+- name: 15Five
+  ats: lever
+  token: 15five
+  careers_url: https://www.15five.com/about/careers
+  hires_from: [US]
+
+- name: 90 Seconds
+  ats: lever
+  token: 90seconds
+  careers_url: https://90seconds.com/about/careers/
+  hires_from: [Global]
+
+- name: Acquia
+  ats: greenhouse
+  token: acquia
+  careers_url: https://www.acquia.com/careers/open-positions
+  hires_from: [US, APAC, LATAM]
+
+- name: Alan
+  ats: ashby
+  token: alan
+  careers_url: https://jobs.ashbyhq.com/alan
+  hires_from: [EU]
+
+- name: AlphaSights
+  ats: greenhouse
+  token: alphasights
+  careers_url: https://engineering.alphasights.com/#positions
+  hires_from: [US, APAC, UK]
+
+- name: Andela
+  ats: ashby
+  token: andela
+  careers_url: https://jobs.ashbyhq.com/andela
+  hires_from: [US, UK, LATAM]
+
+- name: Anomali
+  ats: lever
+  token: anomali
+  careers_url: https://jobs.lever.co/anomali
+  hires_from: [US]
+
+- name: Appen
+  ats: lever
+  token: appen-2
+  careers_url: https://jobs.lever.co/appen-2
+  hires_from: [APAC]
+
+- name: Appinio
+  ats: greenhouse
+  token: appinio
+  careers_url: https://www.appinio.com/en/careers
+  hires_from: [EU, LATAM]
+
+- name: Axios
+  ats: greenhouse
+  token: axios
+  careers_url: https://www.axios.com/careers/
+  hires_from: [US]
+
+- name: BetterUp
+  ats: ashby
+  token: betterup
+  careers_url: https://www.betterup.com/about-us/careers
+  hires_from: [US, UK]
+
+- name: BlueCat Networks
+  ats: lever
+  token: bluecatnetworks
+  careers_url: https://bluecatnetworks.com/careers/
+  hires_from: [US, EU]
+
+- name: Bounteous
+  ats: lever
+  token: bounteous
+  careers_url: https://www.bounteous.com/careers/
+  hires_from: [US, UK]
+
+- name: Brave
+  ats: greenhouse
+  token: brave
+  careers_url: https://brave.com/careers/
+  hires_from: [US, APAC]
+
+- name: BriteCore
+  ats: lever
+  token: britecore
+  careers_url: https://www.britecore.com/company/careers
+  hires_from: [US, LATAM]
+
+- name: Cabify
+  ats: greenhouse
+  token: cabify
+  careers_url: https://cabify.com/en/jobs
+  hires_from: [LATAM, EU]
+
+- name: ClickUp
+  ats: ashby
+  token: clickup
+  careers_url: https://clickup.com/careers
+  hires_from: [EU, US, APAC]
+
+- name: Collabora
+  ats: lever
+  token: collabora
+  careers_url: https://www.collabora.com/careers.html
+  hires_from: [Global]
+
+- name: Dave
+  ats: ashby
+  token: dave
+  careers_url: https://dave.com/careers
+  hires_from: [US]
+
+- name: Doximity
+  ats: greenhouse
+  token: doximity
+  careers_url: https://workat.doximity.com/
+  hires_from: [US]
+
+- name: Ebury
+  ats: greenhouse
+  token: ebury
+  careers_url: https://careers.ebury.com
+  hires_from: [EU, US]
+
+- name: Envato
+  ats: lever
+  token: envato-2
+  careers_url: https://careers.envato.com/
+  hires_from: [APAC, LATAM]
+
+- name: Envoy
+  ats: ashby
+  token: envoy
+  careers_url: https://jobs.ashbyhq.com/envoy
+  hires_from: [US]
+
+- name: Extreme Networks
+  ats: lever
+  token: extremenetworks
+  careers_url: https://www.extremenetworks.com/about-extreme-networks/career/
+  hires_from: [Global]
+
+- name: Fastly
+  ats: greenhouse
+  token: fastly
+  careers_url: https://www.fastly.com/about/careers
+  hires_from: [US, APAC]
+
+- name: Findem
+  ats: lever
+  token: findem
+  careers_url: https://jobs.lever.co/findem
+  hires_from: [US, APAC]
+
+- name: Fingerprint
+  ats: greenhouse
+  token: fingerprint
+  careers_url: https://fingerprint.com/careers/
+  hires_from: [Global]
+
+- name: Fleetio
+  ats: greenhouse
+  token: fleetio
+  careers_url: https://www.fleetio.com/careers
+  hires_from: [US]
+
+- name: Formstack (Intellistack)
+  ats: ashby
+  token: Intellistack
+  careers_url: https://www.intellistack.com/careers
+  hires_from: [US]
+
+- name: General Assembly
+  ats: greenhouse
+  token: generalassembly
+  careers_url: https://generalassemb.ly/careers
+  hires_from: [APAC, UK, US]
+
+- name: Gojob
+  ats: lever
+  token: gojob
+  careers_url: https://www.welcometothejungle.com/fr/companies/gojob
+  hires_from: [EU]
+
+- name: Gruntwork
+  ats: ashby
+  token: gruntwork
+  careers_url: https://jobs.ashbyhq.com/gruntwork
+  hires_from: [Global]
+
+- name: Heetch
+  ats: lever
+  token: heetch
+  careers_url: https://jobs.heetch.com
+  hires_from: [EU]
+
+- name: Hudl
+  ats: greenhouse
+  token: hudl
+  careers_url: https://public.hudl.com/jobs
+  hires_from: [Global]
+
+- name: Hugging Face
+  ats: workable
+  token: huggingface
+  careers_url: https://apply.workable.com/huggingface/
+  hires_from: [EU, US]
+
+- name: iFit
+  ats: greenhouse
+  token: ifit
+  careers_url: https://job-boards.greenhouse.io/ifit
+  hires_from: [US, APAC]
+
+- name: Instructure
+  ats: ashby
+  token: instructure
+  careers_url: https://www.instructure.com/about/careers
+  hires_from: [Global]
+
+- name: Intuition Machines, Inc.
+  ats: workable
+  token: imachines
+  careers_url: https://jobs.imachines.com/
+  hires_from: [Global]
+
+- name: JOOR
+  ats: ashby
+  token: joor
+  careers_url: https://joor.com/careers/
+  hires_from: [EU]
+
+- name: Karat
+  ats: greenhouse
+  token: karat
+  careers_url: https://job-boards.greenhouse.io/karat
+  hires_from: [US, APAC, LATAM]
+
+- name: Kinsta
+  ats: lever
+  token: kinsta
+  careers_url: https://kinsta.com/careers/
+  hires_from: [EU]
+
+- name: Labelbox
+  ats: greenhouse
+  token: labelbox
+  careers_url: https://labelbox.com/company/careers
+  hires_from: [US, APAC]
+
+- name: Launch Potato
+  ats: greenhouse
+  token: launchpotato
+  careers_url: https://launchpotato.com/careers
+  hires_from: [US]
+
+- name: LivePerson
+  ats: greenhouse
+  token: liveperson
+  careers_url: https://job-boards.greenhouse.io/liveperson
+  hires_from: [EU, US, APAC]
+
+- name: Locus Robotics
+  ats: greenhouse
+  token: locusrobotics
+  careers_url: https://job-boards.greenhouse.io/locusrobotics
+  hires_from: [US, UK, EU]
+
+- name: LogRocket
+  ats: lever
+  token: logrocket
+  careers_url: https://jobs.lever.co/logrocket
+  hires_from: [US]
+
+- name: Luxor Technology
+  ats: ashby
+  token: luxor
+  careers_url: https://jobs.ashbyhq.com/luxor
+  hires_from: [LATAM, APAC]
+
+- name: Mattermost
+  ats: greenhouse
+  token: mattermost
+  careers_url: https://job-boards.greenhouse.io/mattermost
+  hires_from: [US, EU, UK]
+
+- name: Medium
+  ats: greenhouse
+  token: medium
+  careers_url: https://job-boards.greenhouse.io/medium
+  hires_from: [US]
+
+- name: Mercari
+  ats: greenhouse
+  token: mercari
+  careers_url: https://careers.mercari.com/job-categories/engineering/?utm_source=remoteintech.company&utm_medium=Referral&utm_campaign=remote-in-tech
+  hires_from: [APAC, US]
+
+- name: MeridianLink
+  ats: ashby
+  token: meridianlink
+  careers_url: https://www.meridianlink.com/careers
+  hires_from: [US]
+
+- name: Mindful
+  ats: lever
+  token: mindful
+  careers_url: https://jobs.lever.co/mindful
+  hires_from: [US]
+
+- name: Mixcloud
+  ats: workable
+  token: mixcloud-limited
+  careers_url: https://apply.workable.com/mixcloud-limited/
+  hires_from: [UK]
+
+- name: Modern Health
+  ats: greenhouse
+  token: modernhealth
+  careers_url: https://boards.greenhouse.io/modernhealth
+  hires_from: [US, LATAM, APAC]
+
+- name: Mux
+  ats: ashby
+  token: mux
+  careers_url: https://mux.com/jobs
+  hires_from: [US, UK]
+
+- name: Nearform
+  ats: greenhouse
+  token: nearform
+  careers_url: https://www.nearform.com/careers/
+  hires_from: [EU, US]
+
+- name: NerdWallet
+  ats: ashby
+  token: nerdwallet
+  careers_url: https://jobs.ashbyhq.com/nerdwallet
+  hires_from: [US]
+
+- name: Netguru
+  ats: workable
+  token: netguru
+  careers_url: https://www.netguru.com/career
+  hires_from: [EU]
+
+- name: Nuharbor Security
+  ats: greenhouse
+  token: nuharborsecurity
+  careers_url: https://www.nuharborsecurity.com/careers#job-openings
+  hires_from: [US]
+
+- name: Nuna
+  ats: ashby
+  token: nuna
+  careers_url: https://www.nuna.com/careers
+  hires_from: [US]
+
+- name: Olo
+  ats: lever
+  token: olo
+  careers_url: https://jobs.lever.co/olo
+  hires_from: [UK, EU, US]
+
+- name: PagerDuty
+  ats: greenhouse
+  token: pagerduty
+  careers_url: https://job-boards.greenhouse.io/pagerduty
+  hires_from: [US, UK]
+
+- name: PayPay Corporation
+  ats: greenhouse
+  token: paypay
+  careers_url: https://job-boards.greenhouse.io/paypay
+  hires_from: [APAC]
+
+- name: PayScale
+  ats: ashby
+  token: payscale
+  careers_url: https://jobs.smartrecruiters.com/PayScale/743999782844766-associate-software-engineer-remote-
+  hires_from: [US, APAC, EU]
+
+- name: Perforce (Puppet)
+  ats: lever
+  token: perforce
+  careers_url: https://www.perforce.com/careers
+  hires_from: [US, APAC, EU]
+
+- name: Pleo
+  ats: ashby
+  token: pleo
+  careers_url: https://www.pleo.io/da/careers/
+  hires_from: [EU, UK]
+
+- name: Primer
+  ats: ashby
+  token: primer.io
+  careers_url: https://jobs.ashbyhq.com/primer.io
+  hires_from: [EU, UK]
+
+- name: Procurify
+  ats: ashby
+  token: procurify
+  careers_url: https://jobs.ashbyhq.com/procurify
+  hires_from: [US]
+
+- name: Quora
+  ats: ashby
+  token: quora
+  careers_url: https://www.quora.com/careers/
+  hires_from: [US, EU]
+
+- name: Rocket.Chat
+  ats: greenhouse
+  token: rocketchat
+  careers_url: https://rocket.chat/jobs
+  hires_from: [EU]
+
+- name: Scandit
+  ats: greenhouse
+  token: scandit
+  careers_url: https://www.scandit.com/careers/
+  hires_from: [EU, US, UK]
+
+- name: Scribd
+  ats: ashby
+  token: ScribdInc
+  careers_url: https://www.scribdinc.com/careers
+  hires_from: [US]
+
+- name: SeatGeek
+  ats: greenhouse
+  token: seatgeek
+  careers_url: https://seatgeek.com/jobs?departments=softwareengineering&locations=all
+  hires_from: [US]
+
+- name: SecurityScorecard
+  ats: greenhouse
+  token: securityscorecard
+  careers_url: https://securityscorecard.com/company/careers
+  hires_from: [US, APAC]
+
+- name: Seeq
+  ats: workable
+  token: seeq
+  careers_url: https://www.seeq.com/careers/
+  hires_from: [APAC, US, UK]
+
+- name: SmugMug
+  ats: greenhouse
+  token: smugmug
+  careers_url: https://jobs.smugmug.com/
+  hires_from: [Global]
+
+- name: Sonatype
+  ats: lever
+  token: sonatype
+  careers_url: https://www.sonatype.com/company/careers
+  hires_from: [US, EU]
+
+- name: Spreedly
+  ats: lever
+  token: spreedly
+  careers_url: https://www.spreedly.com/careers
+  hires_from: [US]
+
+- name: Sticker Mule
+  ats: ashby
+  token: stickermule
+  careers_url: https://www.stickermule.com/careers
+  hires_from: [US, EU]
+
+- name: TeamSnap
+  ats: lever
+  token: teamsnap
+  careers_url: https://www.teamsnap.com/company/careers
+  hires_from: [US]
+
+- name: Tenable
+  ats: greenhouse
+  token: tenableinc
+  careers_url: https://careers.tenable.com/search/jobs/in/remote
+  hires_from: [APAC, LATAM, US]
+
+- name: Teravision Technologies
+  ats: greenhouse
+  token: teravision
+  careers_url: https://job-boards.greenhouse.io/teravision
+  hires_from: [LATAM]
+
+- name: TestGorilla
+  ats: ashby
+  token: testgorilla
+  careers_url: https://www.testgorilla.com/careers/
+  hires_from: [EU]
+
+- name: Thorn
+  ats: greenhouse
+  token: thorn
+  careers_url: https://www.thorn.org/careers/
+  hires_from: [US]
+
+- name: Thrive Market
+  ats: greenhouse
+  token: thrivemarket
+  careers_url: https://thrivemarketjobs.com/
+  hires_from: [US]
+
+- name: Tide
+  ats: greenhouse
+  token: tide
+  careers_url: https://www.tide.co/careers/#jobs
+  hires_from: [EU, APAC, UK]
+
+- name: Toast
+  ats: greenhouse
+  token: toast
+  careers_url: https://careers.toasttab.com/
+  hires_from: [US, EU]
+
+- name: Tribe
+  ats: ashby
+  token: tribe-xyz
+  careers_url: https://www.tribexyz.com/careers
+  hires_from: [EU]
+
+- name: Truelogic
+  ats: ashby
+  token: truelogic
+  careers_url: https://jobs.ashbyhq.com/truelogic
+  hires_from: [LATAM]
+
+- name: Udacity
+  ats: greenhouse
+  token: udacity
+  careers_url: https://www.udacity.com/jobs
+  hires_from: [APAC, LATAM, US]
+
+- name: Virta Health
+  ats: ashby
+  token: virtahealth
+  careers_url: https://www.virtahealth.com/careers
+  hires_from: [US]
+
+- name: Vox Media (Product Team)
+  ats: greenhouse
+  token: voxmedia
+  careers_url: https://www.voxmedia.com/jobs/
+  hires_from: [US]
+
+- name: WebFX
+  ats: lever
+  token: webfx
+  careers_url: https://jobs.lever.co/webfx
+  hires_from: [US]
+
+- name: XP Inc.
+  ats: greenhouse
+  token: xpinc
+  careers_url: https://www.xpi.com.br/
+  hires_from: [LATAM, US]
+
+- name: Zip
+  ats: ashby
+  token: zip
+  careers_url: https://ziphq.com/careers
+  hires_from: [US, APAC, UK]
+
+- name: Zup
+  ats: greenhouse
+  token: zupinnovation
+  careers_url: https://boards.greenhouse.io/zupinnovation
+  hires_from: [LATAM]
